@@ -13,7 +13,7 @@
 
 
  */
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600,200);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,200);
 /* line 378, /Users/rossedfort/.rvm/gems/ruby-2.2.3/gems/materialize-sass-0.97.3/app/assets/stylesheets/materialize/components/_color.scss */
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important;
@@ -15738,19 +15738,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 /* line 23, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 h1 {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 600;
 }
 
 /* line 28, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 h2, h3, h4, h5, h6 {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 400;
 }
 
 /* line 33, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 p, a {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 200;
 }
 

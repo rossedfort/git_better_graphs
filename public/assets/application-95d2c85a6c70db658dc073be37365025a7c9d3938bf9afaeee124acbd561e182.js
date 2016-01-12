@@ -26944,14 +26944,14 @@ $.ajax({
 
 function draw(data) {
     var color = d3.scale.category20b();
-    var width = 420,
+    var width = 1200,
         barHeight = 20;
 
     var x = d3.scale.linear()
         .range([0, width])
         .domain([0, d3.max(data)]);
 
-    var chart = d3.select("#graph")
+    var chart = d3.select("#user_repo_graph")
         .attr("width", width)
         .attr("height", barHeight * data.length);
 
@@ -26971,11 +26971,11 @@ function draw(data) {
 
     bar.append("text")
         .attr("x", function (d) {
-                  return x(d) - 10;
+                  return x(d);
               })
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
-        .style("fill", "white")
+        .style("fill", "black")
         .text(function (d) {
                   return d;
               });

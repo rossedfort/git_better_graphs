@@ -17,20 +17,20 @@
  @import "materialize/components/color";
  $primary-color: color("grey", "lighten-1") !default;
  @import "materialize";
- @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600,200);
+ @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,200);
 
 h1 {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 600;
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 400;
 }
 
 p, a {
-  font-family: 'Source Code Pro';
+  font-family: 'Titillium Web';
   font-weight: 200;
 }
 
