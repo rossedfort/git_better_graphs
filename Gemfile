@@ -14,6 +14,7 @@ gem 'materialize-sass'
 gem 'figaro'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
+gem 'responders'
 
 group :development, :test do
   gem 'pry'

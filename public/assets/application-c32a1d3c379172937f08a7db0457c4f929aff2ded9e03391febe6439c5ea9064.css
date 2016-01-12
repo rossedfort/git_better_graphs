@@ -15755,27 +15755,41 @@ p, a {
 }
 
 /* line 38, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+a {
+  color: #fff;
+}
+
+/* line 42, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+p {
+  color: #000;
+}
+
+/* line 46, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 44, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 52, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 main {
   flex: 1 0 auto;
 }
 
-/* line 48, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 56, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .canvas {
-  width: inherit;
-  height: 580px;
-  margin-top: 20px;
-  border: 2px solid #000000;
+  margin-top: 50px;
+  height: 700px;
+  width: 1200px;
   background-color: #666666;
 }
 
-/* line 56, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 63, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .slider {
   margin-top: 100;
+}
+
+/* line 67, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+.top-margin {
+  margin-top: 100px;
 }

@@ -7,7 +7,7 @@ class GithubService
   end
 
   def repos
-    client.get("/users/#{user.nickname}/repos")
+    client.get("/users/#{user.nickname}/repos").map { |repo| repo[:size] }
   end
 
   def followers
