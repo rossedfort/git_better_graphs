@@ -11,3 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+/config/omniauth.rb
+
+# Ignore application configuration
+/config/application.yml
+
+/app/assets/images

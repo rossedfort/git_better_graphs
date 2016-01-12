@@ -11,5 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require materialize-sprockets
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+  $('.slider').slider({full_width: true});
+});
