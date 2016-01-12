@@ -2,10 +2,17 @@
   <div class="nav-wrapper">
     <a href="<%= root_path %>" class="brand-logo center">GitBetter Graphs</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <%= link_to "Login", login_path %>
+        <% if current_user %>
+          <li><%= link_to "logout", logout_path %></li>
+        <% else %>
+        <li><%= link_to "Login", login_path %></li>
+        <% end %>
     </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <%= link_to "Explore", root_path %>
+      <li><%= link_to "Explore", root_path %></li>
+      <% if current_user %>
+      <li><%= link_to "myGraphs", user_path(current_user.id) %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
