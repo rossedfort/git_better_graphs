@@ -9,8 +9,8 @@
         <% end %>
     </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><%= link_to "Explore", followers_path %></li>
       <% if current_user %>
+      <li><%= link_to "Explore", followers_path %></li>
       <li><%= link_to "myGraphs", user_path(current_user.id) %></li>
       <% end %>
     </ul>
