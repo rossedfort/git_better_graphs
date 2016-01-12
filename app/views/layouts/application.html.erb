@@ -8,6 +8,12 @@
 </head>
 <body>
   <%= render partial: 'partials/nav' %>
-  <%= yield %>
+  <% flash.each do |type, msg| %>
+  <div class="flash_<%= type %>">
+    <script type="text/javascript">
+      Materialize.toast('<%= sanitize(msg) %>', 5000, 'rounded <%= "flash_#{type}" %>');
+    </script>
+  </div>
+  <% end %>  <%= yield %>
 </body>
 </html>
