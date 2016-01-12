@@ -1,21 +1,22 @@
-<div class="row">
-  <div class="col m9 offset m3">
-    <table class="bordered stats-table">
-      <tr>
-        <th>followers</th>
-        <th>Repos</th>
-        <th>Commits</th>
-      </tr>
-      <tbody>
-        <tr>
-          <td><%= current_user.followers.count %></td>
-          <td><%= current_user.repos.count %></td>
-          <td><%= current_user.commits %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= javascript_tag "var userName = '#{current_user.nickname}';" %>
+<table class="bordered stats-table centered">
+  <thead>
+    <tr class="red-text">
+      <th>Username</th>
+      <th>Followers</th>
+      <th>Repos</th>
+      <th>Commits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= current_user.nickname %></td>
+      <td id="userFollowerCount"></td>
+      <td id="userRepoCount"></td>
+      <td id="userCommitCount"></td>
+    </tr>
+  </tbody>
+</table>
 <div class="container">
   <h5 class="right align">Sizes of repos in lines of code</h5>
   <svg id="user_repo_graph"></svg>

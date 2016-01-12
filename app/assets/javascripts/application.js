@@ -18,6 +18,7 @@
 
 $(document).ready(function(){
   $('.slider').slider({full_width: true});
-
-  $('.tooltipped').tooltip({delay: 50});  
+  $('.tooltipped').tooltip({delay: 50});
+  user_repo_graph();
+  repos();
 });

@@ -1,16 +1,5 @@
-$(document).ready(function(){
-  $.ajax({
-             type: "GET",
-             contentType: "application/json; charset=utf-8",
-             url: 'data',
-             dataType: 'json',
-             success: function (data) {
-                 draw(data);
-             },
-             error: function (result) {
-                 error();
-             }
-         });
+function user_repo_graph() {
+  $.getJSON('data').then(draw).fail(error);
 
   function draw(data) {
       var color = d3.scale.category20b();
@@ -54,4 +43,5 @@ $(document).ready(function(){
   function error() {
       console.log("error")
   }
-})
+
+}

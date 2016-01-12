@@ -77,7 +77,10 @@ main {
   text-align: center;
 }
 
-
 .stats-table {
-  width: 800px;
+  width: 100vw;
+}
+
+td, th {
+  padding: 7px 5px;
 }
