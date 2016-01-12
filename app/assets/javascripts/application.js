@@ -21,4 +21,5 @@ $(document).ready(function(){
   $('.tooltipped').tooltip({delay: 50});
   user_repo_graph();
   repos();
+  followers();
 });
