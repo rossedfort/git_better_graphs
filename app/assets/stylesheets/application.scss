@@ -32,7 +32,14 @@ h2, h3, h4, h5, h6 {
 p, a {
   font-family: 'Source Code Pro';
   font-weight: 200;
+}
+
+a {
   color: #fff;
+}
+
+p {
+  color: #000;
 }
 
 body {
@@ -45,14 +52,17 @@ main {
   flex: 1 0 auto;
 }
 
-.canvas{
-  width: inherit;
-  height: 580px;
-  margin-top: 20px;
-  border:2px solid #000000;
+.canvas {
+  margin-top: 50px;
+  height: 700px;
+  width: 1200px;
   background-color: #666666;
 }
 
 .slider{
   margin-top: 100;
+}
+
+.top-margin {
+  margin-top: 100px;
 }
