@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: git_better_graphs_production
-  username: git_better_graphs
-  password: <%= ENV['GIT_BETTER_GRAPHS_DATABASE_PASSWORD'] %>

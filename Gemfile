@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
 gem 'responders'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'pry'
