@@ -1,4 +1,22 @@
-<div class="container top-margin">
+<div class="row">
+  <div class="col m9 offset m3">
+    <table class="bordered stats-table">
+      <tr>
+        <th>followers</th>
+        <th>Repos</th>
+        <th>Commits</th>
+      </tr>
+      <tbody>
+        <tr>
+          <td><%= current_user.followers.count %></td>
+          <td><%= current_user.repos.count %></td>
+          <td><%= current_user.commits %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container">
   <h5 class="right align">Sizes of repos in lines of code</h5>
   <svg id="user_repo_graph"></svg>
 </div>
