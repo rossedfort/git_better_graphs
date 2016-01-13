@@ -1,7 +1,7 @@
 function repos() {
   $.ajax({
     type:    "GET",
-    url:     "repo_data",
+    url:     userName + "/repo_data",
     success: function(repos) {
       $("#userRepoCount").append(
         repos.length

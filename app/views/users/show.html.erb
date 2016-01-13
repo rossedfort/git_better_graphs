@@ -1,4 +1,4 @@
-<%= javascript_tag "var userName = '#{current_user.nickname}';" %>
+<%= javascript_tag "var userName = '#{User.data(params[:id]).login}';" %>
 <table class="bordered stats-table centered">
   <thead>
     <tr class="red-text">
@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= current_user.nickname %></td>
+      <td id="userData"></td>
       <td id="userFollowerCount"></td>
       <td id="userRepoCount"></td>
     </tr>

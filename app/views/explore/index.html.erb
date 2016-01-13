@@ -4,7 +4,7 @@
       <h5>Followers</h5>
       <% @followers.each do |follower| %>
       <p>
-        <%= follower.login %>
+        <%= link_to follower.login, user_path(follower.login) %>
       </p>
       <% end %>
     </div>

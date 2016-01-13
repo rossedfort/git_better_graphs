@@ -1,5 +1,5 @@
 function user_repo_graph() {
-  $.getJSON("repo_data").then(draw).fail(error);
+  $.getJSON(userName + "/repo_data").then(draw).fail(error);
 
   function draw(data) {
     var sizes = new Array();

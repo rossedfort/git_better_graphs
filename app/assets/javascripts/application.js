@@ -22,4 +22,5 @@ $(document).ready(function(){
   user_repo_graph();
   repos();
   followers();
+  user();
 });

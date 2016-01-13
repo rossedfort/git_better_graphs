@@ -9,15 +9,19 @@ class User < ActiveRecord::Base
     end
   end
 
-  def service
-    GithubService.new(self)
+  def self.service
+    GithubService.new
   end
 
-  def repos
-    service.repos
+  def self.repos(user)
+    service.repos(user)
   end
 
-  def followers
-    service.followers
+  def self.followers(user)
+    service.followers(user)
+  end
+
+  def self.data(user)
+    service.data(user)
   end
 end
