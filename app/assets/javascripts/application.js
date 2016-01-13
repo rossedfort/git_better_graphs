@@ -23,4 +23,5 @@ $(document).ready(function(){
   repos();
   followers();
   user();
+  getRepo();
 });

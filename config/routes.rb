@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get 'users/:id/user_data', to: 'users#user_data', defaults: {format: :json}
   get '/explore', to: 'explore#index'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :repos, only: [:index, :show]
+  end
 end
