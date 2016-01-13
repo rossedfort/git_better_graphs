@@ -1,21 +1,32 @@
 <%= javascript_tag "var userName = '#{User.data(params[:id]).login}';" %>
 <div class="container">
-  <table class="small-top-margin centered">
-    <thead>
-      <tr>
-        <th>Username</th>
-        <th>Followers</th>
-        <th>Repos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="userData"></td>
-        <td id="userFollowerCount"></td>
-        <td id="userRepoCount"></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col s6">
+      <table class="small-top-margin centered">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Followers</th>
+            <th>Repos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="userData"></td>
+            <td id="userFollowerCount"></td>
+            <td id="userRepoCount"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col s3 offset-s2 small-top-margin">
+      <form class="" action="index.html" method="post">
+        <label for="repoSelect" class="repo-select-label">Selct A Repository</label>
+        <select class="browser-default" name="repoSelect" id="repoSelect">
+        </select>
+      </form>
+    </div>
+  </div>
 </div>
 <div class="center">
   <svg id="user_repo_graph"></svg>
