@@ -1,1 +1,23 @@
 <%= javascript_tag "var userName = '#{User.data(params[:user_id]).login}';" %>
+<%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
+
+<div class="container repo-data center">
+  <h5>name:</h5>
+  <p id="repoName"></p>
+  <h5>description:</h5>
+  <p id="repoDescription"></p>
+  <h5>size:</h5>
+  <p id="repoSize"></p>
+  <h5>primary language:</h5>
+  <p id="repoLanguage"></p>
+  <h5>watchers:</h5>
+  <p id="repoWatchers"></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col s6 top-margin">
+      <div id="languageDataGraph"></div>
+    </div>
+  </div>
+</div>

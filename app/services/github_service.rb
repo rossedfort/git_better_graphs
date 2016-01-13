@@ -21,9 +21,15 @@ class GithubService
     client.get("users/#{user}")
   end
 
+  def specific_repo_data(user_name, repo_name)
+    client.get("repos/#{user_name}/#{repo_name}")
+  end
+
+  def language_data(user_name, repo_name)
+    client.get("repos/#{user_name}/#{repo_name}/languages")
+  end
+
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
 end
-
-#client.get("users/#{user.nickname}/repos").map { |repo| { "#{repo[:name]}" => repo[:size]} }

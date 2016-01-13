@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
   def self.data(user)
     service.data(user)
   end
+
+  def self.specific_repo_data(user_name, repo_name)
+    service.specific_repo_data(user_name, repo_name)
+  end
+
+  def self.language_data(user_name, repo_name)
+    service.language_data(user_name, repo_name)
+  end
 end
