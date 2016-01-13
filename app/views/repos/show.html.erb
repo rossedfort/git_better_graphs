@@ -1,22 +1,35 @@
 <%= javascript_tag "var userName = '#{User.data(params[:user_id]).login}';" %>
 <%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
 
-<div class="container repo-data center">
-  <h5>name:</h5>
-  <p id="repoName"></p>
-  <h5>description:</h5>
-  <p id="repoDescription"></p>
-  <h5>size:</h5>
-  <p id="repoSize"></p>
-  <h5>primary language:</h5>
-  <p id="repoLanguage"></p>
-  <h5>watchers:</h5>
-  <p id="repoWatchers"></p>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col s6 top-margin">
+<div class="container repo-data">
+  <div class="center small-top-margin">
+    <h5>name:</h5>
+    <p id="repoName"></p>
+    <h5>description:</h5>
+    <p id="repoDescription"></p>
+  </div>
+  <div class="row top-margin">
+    <div class="col s4">
+      <table class="small-top-margin centered bordered highlight">
+        <tr>
+          <th>size:</th>
+          <td id="repoSize"></td>
+        </tr>
+        <tr>
+          <th>primary language:</th>
+          <td id="repoLanguage"></td>
+        </tr>
+        <tr>
+          <th>watchers:</th>
+          <td id="repoWatchers"></td>
+        </tr>
+        <tr>
+          <th>commits:</th>
+          <td id="commitCount"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col s6 offset-s1 small-top-margin">
       <div id="languageDataGraph"></div>
     </div>
   </div>

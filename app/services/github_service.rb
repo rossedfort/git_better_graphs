@@ -29,6 +29,10 @@ class GithubService
     client.get("repos/#{user_name}/#{repo_name}/languages")
   end
 
+  def commit_data(user_name, repo_name)
+    client.get("repos/#{user_name}/#{repo_name}/commits")
+  end
+
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end

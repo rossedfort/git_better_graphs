@@ -15,15 +15,18 @@ function repos() {
           "<option id=repoSelectOption value=" + names[i] + ">" + names[i] + "</option>"
         )
       }
-      if (data.length == 30) {
-        $("#userRepoCount").append(
-          "30+"
-        )
-      }else {
-        $("#userRepoCount").append(
-          data.length
-        )
-      }
+    },
+    error: function() {
+      console.log("error")
+    }
+  });
+
+  $.ajax({
+    type:    "GET",
+    url:     "http://localhost:3000/users/" + userName + "/user_data",
+    success: function(data) {
+      $("#userRepoCount").append(data[24][1]);
+      $("#userFollowingCount").append(data[27][1]);
     },
     error: function() {
       console.log("error")

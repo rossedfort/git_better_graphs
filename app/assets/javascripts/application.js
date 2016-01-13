@@ -25,4 +25,5 @@ $(document).ready(function(){
   user();
   getRepo();
   repoData();
+  commits();
 });

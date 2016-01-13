@@ -12,7 +12,7 @@ function user_repo_graph() {
 
     var color = d3.scale.category20b();
 
-    var width = 1200,
+    var width = 900,
         height = 600,
         barHeight = 20;
 

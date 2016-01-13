@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     service.specific_repo_data(user_name, repo_name)
   end
 
+  def self.commit_data(user_name, repo_name)
+    service.commit_data(user_name, repo_name)
+  end
+
   def self.language_data(user_name, repo_name)
     service.language_data(user_name, repo_name)
   end
