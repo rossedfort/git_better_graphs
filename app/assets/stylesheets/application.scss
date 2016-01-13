@@ -72,6 +72,10 @@ main {
   margin-top: 100px;
 }
 
+.small-top-margin {
+  margin-top: 25px;
+}
+
 .flash_notice {
   background-color: #4caf50;
   text-align: center;
@@ -82,16 +86,13 @@ main {
   text-align: center;
 }
 
-.stats-table {
-  width: 100vw;
-}
-
 td, th {
   padding: 7px 5px;
 }
 
 #user_repo_graph {
   padding: 100px 100px 100px 100px;
+  background-color: #F0F8FF;
 }
 
 .axis path,

@@ -1,20 +1,22 @@
 <%= javascript_tag "var userName = '#{User.data(params[:id]).login}';" %>
-<table class="bordered stats-table centered">
-  <thead>
-    <tr class="red-text">
-      <th>Username</th>
-      <th>Followers</th>
-      <th>Repos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="userData"></td>
-      <td id="userFollowerCount"></td>
-      <td id="userRepoCount"></td>
-    </tr>
-  </tbody>
-</table>
-<div>
+<div class="container">
+  <table class="small-top-margin centered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Followers</th>
+        <th>Repos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="userData"></td>
+        <td id="userFollowerCount"></td>
+        <td id="userRepoCount"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="center">
   <svg id="user_repo_graph"></svg>
 </div>

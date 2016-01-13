@@ -3,7 +3,6 @@ function repos() {
     type:    "GET",
     url:     "http://localhost:3000/users/" + userName + "/repo_data",
     success: function(repos) {
-      debugger;
       if (repos.length == 30) {
         $("#userRepoCount").append(
           "30+"
