@@ -34,6 +34,11 @@ p, a {
   font-weight: 200;
 }
 
+text {
+  font-family: 'Titillium Web';
+  font-weight: 200;  
+}
+
 a {
   color: #fff;
 }
@@ -83,4 +88,19 @@ main {
 
 td, th {
   padding: 7px 5px;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+
+.x.axis path {
+  display: none;
 }

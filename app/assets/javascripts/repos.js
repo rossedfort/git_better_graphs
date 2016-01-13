@@ -1,7 +1,7 @@
 function repos() {
   $.ajax({
     type:    "GET",
-    url:     "https://api.github.com/users/" + userName + "/repos",
+    url:     "repo_data",
     success: function(repos) {
       $("#userRepoCount").append(
         repos.length

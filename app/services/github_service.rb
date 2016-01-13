@@ -7,20 +7,16 @@ class GithubService
   end
 
   def repos
-    client.get("/users/#{user.nickname}/repos").map { |repo| repo[:size] }
+    client.get("users/#{user.nickname}/repos")
   end
 
   def followers
-    client.get("/users/#{user.nickname}/followers")
-  end
-
-  def commits
-    client.get("/users/#{user.nickname}/repos").map do |repo|
-      client.get("/repos/#{user.nickname}/#{repo[:name]}/commits").count
-    end.sum
+    client.get("users/#{user.nickname}/followers")
   end
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
 end
+
+#client.get("users/#{user.nickname}/repos").map { |repo| { "#{repo[:name]}" => repo[:size]} }

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'auth/github/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  get 'users/data', defaults: {format: :json}
-  resources :users, only: [:show]
-
+  get 'users/repo_data', defaults: {format: :json}
+  get 'users/follower_data', defaults: {format: :json}
   get '/explore', to: 'explore#index'
+
+  resources :users, only: [:show]
 end

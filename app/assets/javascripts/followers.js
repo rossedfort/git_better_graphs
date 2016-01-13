@@ -1,7 +1,7 @@
 function followers() {
   $.ajax({
     type:    "GET",
-    url:     "https://api.github.com/users/" + userName + "/followers",
+    url:     "follower_data",
     success: function(followers) {
       $("#userFollowerCount").append(
         followers.length

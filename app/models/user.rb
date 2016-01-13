@@ -17,10 +17,6 @@ class User < ActiveRecord::Base
     service.repos
   end
 
-  def commits
-    service.commits
-  end
-
   def followers
     service.followers
   end

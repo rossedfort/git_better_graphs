@@ -1,47 +1,60 @@
 function user_repo_graph() {
-  $.getJSON('data').then(draw).fail(error);
+  $.getJSON("repo_data").then(draw).fail(error);
 
   function draw(data) {
-      var color = d3.scale.category20b();
-      var width = 1200,
-          barHeight = 20;
+    var sizes = new Array();
+    var names = new Array();
 
-      var x = d3.scale.linear()
-          .range([0, width])
-          .domain([0, d3.max(data)]);
+    for (var i = 0; i < data.length; i++) {
+      sizes.push(data[i][52][1]);
+      names.push(data[i][1][1]);
+    }
 
-      var chart = d3.select("#user_repo_graph")
-          .attr("width", width)
-          .attr("height", barHeight * data.length);
+    var color = d3.scale.category20b();
+    var width = 1200,
+        height = 700,
+        barHeight = 20;
 
-      var bar = chart.selectAll("g")
-          .data(data)
-          .enter().append("g")
-          .attr("transform", function (d, i) {
-                    return "translate(0," + i * barHeight + ")";
-                });
+    var barWidth = width / sizes.length;
 
-      bar.append("rect")
-          .attr("width", x)
-          .attr("height", barHeight - 1)
-          .style("fill", function (d) {
-                     return color(d)
-                 })
+    var x = d3.scale.linear()
+              .range([width, 0])
+              .domain([d3.max(sizes), 0]);
 
-      bar.append("text")
-          .attr("x", function (d) {
-                    return x(d);
-                })
-          .attr("y", barHeight / 2)
-          .attr("dy", ".35em")
-          .style("fill", "black")
-          .text(function (d) {
-                    return d;
-                });
+    var y = d3.scale.linear()
+        .range([height, 0])
+        .domain([d3.max(sizes), 0]);
+
+    var chart = d3.select("#user_repo_graph")
+        .attr("width", width)
+        .attr("height", barHeight * sizes.length);
+
+    var bar = chart.selectAll("g")
+                   .data(sizes)
+                   .enter().append("g")
+                   .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+
+    bar.append("rect")
+       .attr("height", barHeight)
+       .attr("width", x)
+       .style("fill", "steelblue");
+
+    bar.append("text")
+        .attr("x", function (d) {
+                  return x(d);
+              })
+        .attr("y", barHeight / 2)
+        .attr("dy", ".35em")
+        .style("fill", "black")
+        .text(function (d) {
+                  return d + " lines";
+              });
+
+
   }
+
 
   function error() {
-      console.log("error")
+    console.log("error");
   }
-
 }
