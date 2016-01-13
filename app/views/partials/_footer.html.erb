@@ -2,22 +2,22 @@
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5><a class="grey-text text-lighten-3" href="https://github.com/rossedfort/git_better_graphs">GitBetter Graphs</a></h5>
+        <h5><%= link_to "GitBetter Graphs", "https://github.com/rossedfort/git_better_graphs", target: "_blank", class: "white-text" %></h5>
         <p class="grey-text text-lighten-4">A Ruby on Rails app built using AJAX and D3js</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="https://developer.github.com/v3/">Github API</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://twitter.com/rossedfort">Twitter</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/rossedfort">LinkedIn</a></li>
+          <li><%= link_to "Gihtub API", "https://developer.github.com/v3/", target: "_blank", class: "grey-text text-lighten-3" %></li>
+          <li><%= link_to "Twitter", "https://twitter.com/rossedfort", target: "_blank", class: "grey-text text-lighten-3" %></li>
+          <li><%= link_to "LinkedIn", "https://www.linkedin.com/in/rossedfort", tagret: "_blank", class: "grey-text text-lighten-3" %></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container center">
-      <%= link_to "© 2016 Ross Edfort", "https://github.com/rossedfort", class: "white-text" %>
+      <%= link_to "© 2016 Ross Edfort", "https://github.com/rossedfort", target: "_blank", class: "white-text" %>
     </div>
   </div>
 </footer>
