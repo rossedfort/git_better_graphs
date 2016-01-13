@@ -36,7 +36,7 @@ p, a {
 
 text {
   font-family: 'Titillium Web';
-  font-weight: 200;  
+  font-weight: 200;
 }
 
 a {
@@ -90,12 +90,11 @@ td, th {
   padding: 7px 5px;
 }
 
-.axis text {
-  font: 10px sans-serif;
+#user_repo_graph {
+  padding: 100px 100px 100px 100px;
 }
 
 .axis path,
-
 .axis line {
   fill: none;
   stroke: #000;
