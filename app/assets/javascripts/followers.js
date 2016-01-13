@@ -1,7 +1,7 @@
 function followers() {
   $.ajax({
     type:    "GET",
-    url:     userName + "/follower_data",
+    url:     "http://localhost:3000/users/" + userName + "/follower_data",
     success: function(followers) {
       $("#userFollowerCount").append(
         followers.length

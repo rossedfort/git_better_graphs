@@ -8,5 +8,13 @@
       </p>
       <% end %>
     </div>
+    <div class="col s6">
+      <h5>Search for a user Below!</h5>
+      <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:id, "Search for:") %>
+      <%= text_field_tag(:id) %>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </div>
   </div>
 </div>
