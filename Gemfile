@@ -20,6 +20,7 @@ gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry'
+  gem 'simplecov'
 end
 
 group :development do
