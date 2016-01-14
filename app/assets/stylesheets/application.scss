@@ -48,6 +48,7 @@ p {
 }
 
 body {
+  background-color: #f2f2f2;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -113,4 +114,24 @@ td, th {
   position: relative;
   top: 33px;
   right: 105px;
+}
+
+.repo-data p, h5 {
+  display: inline;
+}
+
+.container {
+  margin-top: 25px;
+  padding: 50px 50px 50px 50px;
+  background-color: #fff;
+  width: 90%;
+}
+
+input[type=text]:focus {
+  border-bottom: 1px solid #cccccc !important;
+  box-shadow: 0 1px 0 0 #cccccc !important;
+}
+
+#languageDataGraph {
+  margin-left: 150px;
 }

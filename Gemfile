@@ -16,6 +16,7 @@ gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
 gem 'responders'
 gem 'rails_12factor', group: :production
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry'

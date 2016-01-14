@@ -5,14 +5,14 @@ function user_repo_graph() {
     var sizes = new Array();
     var names = new Array();
 
-    for (var i = 0; i < data.length; i++) {
-      sizes.push(data[i][52][1]);
-      names.push(data[i][1][1]);
+    for (var i = 0; i < data.users.length; i++) {
+      sizes.push(data.users[i][52][1]);
+      names.push(data.users[i][1][1]);
     }
 
     var color = d3.scale.category20b();
 
-    var width = 1200,
+    var width = 900,
         height = 600,
         barHeight = 20;
 
