@@ -8,6 +8,8 @@ function repoData() {
       $("#repoSize").append(repo_data[52][1] + " lines");
       $("#repoLanguage").append(repo_data[55][1]);
       $("#repoWatchers").append(repo_data[54][1]);
+      $("#repoForks").append(repo_data[60][1]);
+      $("#repoOpenIssues").append(repo_data[62][1]);
       getLanguageData();
     },
     error: function() {
@@ -20,8 +22,8 @@ function repoData() {
   }
 
   function buildGraph(data) {
-    var w = 500;
-    var h = 300;
+    var w = 400;
+    var h = 200;
     var r = h/2;
     var legendRectSize = 18;
     var legendSpacing = 4;
