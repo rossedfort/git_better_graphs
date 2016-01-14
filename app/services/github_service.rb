@@ -30,7 +30,11 @@ class GithubService
   end
 
   def commit_data(user_name, repo_name)
-    client.get("repos/#{user_name}/#{repo_name}/commits")
+    client.get("/repos/#{user_name}/#{repo_name}/stats/commit_activity").map(&:total).reduce(:+)
+  end
+
+  def contributor_data(user_name, repo_name)
+    client.get("/repos/#{user_name}/#{repo_name}/stats/contributors").map { |contribution| {label: contribution.author.login, value: contribution.total} }
   end
 
   def parse(response)

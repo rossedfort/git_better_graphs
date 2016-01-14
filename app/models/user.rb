@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
   def self.language_data(user_name, repo_name)
     service.language_data(user_name, repo_name)
   end
+
+  def self.contributor_data(user_name, repo_name)
+    service.contributor_data(user_name, repo_name)
+  end
 end

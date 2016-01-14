@@ -24,4 +24,5 @@ $(document).ready(function(){
   getRepo();
   repoData();
   commits();
+  contributors();
 });

@@ -28,4 +28,12 @@ class ReposController < ApplicationController
     end
     render json: formatted_data
   end
+
+  def contributor_data
+    respond_to do |format|
+      format.json {
+        render :json => User.contributor_data(params[:user_id], params[:id])
+      }
+    end
+  end
 end
