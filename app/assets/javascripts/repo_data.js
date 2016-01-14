@@ -1,7 +1,7 @@
 function repoData() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repos/" + repoName + "/specific_repo_data",
+    url:     "http://git-better-graphs.herokuapp.com/users/" + userName + "/repos/" + repoName + "/specific_repo_data",
     success: function(repo_data) {
       $("#repoName").append(repo_data[1][1]);
       $("#repoDescription").append(repo_data[6][1]);
@@ -18,7 +18,7 @@ function repoData() {
   })
 
   function getLanguageData() {
-    $.getJSON("http://localhost:3000/users/" + userName + "/repos/" + repoName + "/language_data").then(buildGraph)
+    $.getJSON("http://git-better-graphs.herokuapp.com/users/" + userName + "/repos/" + repoName + "/language_data").then(buildGraph)
   }
 
   function buildGraph(data) {

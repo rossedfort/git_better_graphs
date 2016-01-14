@@ -1,7 +1,7 @@
 function repos() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repo_data",
+    url:     "http://git-better-graphs.herokuapp.com/users/" + userName + "/repo_data",
     success: function(data) {
       var sizes = new Array();
       var names = new Array();
@@ -23,7 +23,7 @@ function repos() {
 
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/user_data",
+    url:     "http://git-better-graphs.herokuapp.com/users/" + userName + "/user_data",
     success: function(data) {
       $("#userData").append(data[0][1]);
       $("#userRepoCount").append(data[24][1]);
@@ -39,6 +39,6 @@ function repos() {
 function getRepo() {
   $('#repoSelect').change(function() {
     var repoName = $("#repoSelect option:selected").text();
-    document.location.href = "http://localhost:3000/users/" + userName + "/repos/" + repoName
+    document.location.href = "http://git-better-graphs.herokuapp.com/users/" + userName + "/repos/" + repoName
   });
 }
