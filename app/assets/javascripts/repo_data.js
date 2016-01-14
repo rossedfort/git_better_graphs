@@ -27,7 +27,7 @@ function repoData() {
     var legendSpacing = 4;
     var color = d3.scale.category20c();
     var svg = d3.select('#languageDataGraph')
-                .append("svg:svg").data([data])
+                .append("svg:svg").data([data.repos])
                 .attr("width", w)
                 .attr("height", h)
                 .append("svg:g")
@@ -66,6 +66,6 @@ function repoData() {
     legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function(d, i) { return data[i].label; });
+      .text(function(d, i) { return data.repos[i].label; });
       }
 }
