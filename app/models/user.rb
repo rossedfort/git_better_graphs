@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
     GithubService.new
   end
 
-  def self.repos(user)
-    service.repos(user)
+  def self.repo_data(user)
+    service.repo_data(user)
   end
 
   def self.followers(user)

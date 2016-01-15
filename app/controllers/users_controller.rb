@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def repo_data
     respond_to do |format|
       format.json {
-        render :json => User.repos(params[:id])
+        render :json => User.repo_data(params[:id])
       }
     end
   end

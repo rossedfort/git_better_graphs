@@ -1,4 +1,4 @@
-function contributors() {
+function populateContributorData() {
   $.ajax({
     type:    "GET",
     url:     "http://localhost:3000/users/" + userName + "/repos/" + repoName + "/contributor_data",
@@ -6,14 +6,17 @@ function contributors() {
       $("#repoContributors").append(
         data.repos.length
       )
-      buildGraph(data);
     },
     error: function() {
       console.log("error")
     }
-  })
+  });
+}
 
-  function buildGraph(data) {
+function buildContributorGraph(data) {
+  $.getJSON("http://localhost:3000/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
+
+  function drawContributorGraph(data) {
     var w = 400;
     var h = 200;
     var r = h/2;
@@ -32,33 +35,34 @@ function contributors() {
 
     arcs.append("svg:path")
         .attr("fill", function(d, i){
-            return color(i);
+          return color(i);
         })
         .attr("d", function (d) {
-            return arc(d);
-    });
-    var legend = svg.selectAll('.legend')
-        .data(color.domain())
-        .enter()
-        .append('g')
-        .attr('class', 'legend')
-        .attr('transform', function(d, i) {
-          var height = legendRectSize + legendSpacing;
-          var offset =  height * color.domain().length / 2;
-          var horz = 10 * legendRectSize;
-          var vert = i * height - offset;
-          return 'translate(' + horz + ',' + vert + ')';
+          return arc(d);
         });
 
+    var legend = svg.selectAll('.legend')
+          .data(color.domain())
+          .enter()
+          .append('g')
+          .attr('class', 'legend')
+          .attr('transform', function(d, i) {
+            var height = legendRectSize + legendSpacing;
+            var offset =  height * color.domain().length / 2;
+            var horz = 10 * legendRectSize;
+            var vert = i * height - offset;
+            return 'translate(' + horz + ',' + vert + ')';
+          });
+
     legend.append('rect')
-      .attr('width', legendRectSize)
-      .attr('height', legendRectSize)
-      .style('fill', color)
-      .style('stroke', color);
+          .attr('width', legendRectSize)
+          .attr('height', legendRectSize)
+          .style('fill', color)
+          .style('stroke', color);
 
     legend.append('text')
-      .attr('x', legendRectSize + legendSpacing)
-      .attr('y', legendRectSize - legendSpacing)
-      .text(function(d, i) { return data.repos[i].label; });
+          .attr('x', legendRectSize + legendSpacing)
+          .attr('y', legendRectSize - legendSpacing)
+          .text(function(d, i) { return data.repos[i].label; });
   }
 }

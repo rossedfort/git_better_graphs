@@ -1,4 +1,4 @@
-function user_repo_graph() {
+function userRepoData() {
   $.getJSON("http://localhost:3000/users/" + userName + "/repo_data").then(draw).fail(error);
 
   function draw(data) {
@@ -6,14 +6,14 @@ function user_repo_graph() {
     var names = new Array();
 
     for (var i = 0; i < data.users.length; i++) {
-      sizes.push(data.users[i][52][1]);
-      names.push(data.users[i][1][1]);
+      names.push(data.users[i].label);
+      sizes.push(data.users[i].value);
     }
 
     var color = d3.scale.category20b();
 
     var width = 900,
-        height = 600,
+        height = names.length * 20,
         barHeight = 20;
 
     var barWidth = width / sizes.length;
@@ -43,20 +43,20 @@ function user_repo_graph() {
                    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
     bar.append("rect")
+        .attr("fill", function(d, i){
+          return color(i);
+        })
        .attr("height", barHeight)
-       .attr("width", x)
-       .style("fill", "steelblue");
+       .attr("width", x);
 
     bar.append("text")
-        .attr("x", function (d) {
-                  return x(d);
-              })
+        .attr("x", -10)
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
+        .attr("text-anchor", "end")
         .style("fill", "black")
-        .text(function (d) {
-                  return d + " lines";
-              });
+        .style("font-size", "12px")
+        .text(function(d, i) { return data.users[i].label; });
 
     chart.append("g")
         .attr("class", "x axis")
@@ -65,15 +65,7 @@ function user_repo_graph() {
         .append("text")
         .text("Lines of Code")
         .attr("y", 40)
-        .attr("x", width-100);
-
-    chart.append("g")
-        .attr("class", "y axis")
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -6)
-        .style("text-anchor", "end")
-        .text("Repositories");
+        .attr("x", 0);
 
   }
 

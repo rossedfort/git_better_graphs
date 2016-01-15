@@ -19,10 +19,13 @@
 $(document).ready(function(){
   $('.slider').slider({full_width: true});
   $('.tooltipped').tooltip({delay: 50});
-  user_repo_graph();
-  repos();
-  getRepo();
-  repoData();
-  commits();
-  contributors();
+  userRepoData();
+  populateRepoDropdown();
+  populateUserData();
+  getRepoLink();
+  getRepoData();
+  getCommitData();
+  buildLanguageGraph();
+  populateContributorData();
+  buildContributorGraph();
 });

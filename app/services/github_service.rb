@@ -5,8 +5,8 @@ class GithubService
     @client = Octokit::Client.new(:access_token => ENV["github_token"])
   end
 
-  def repos(user)
-    client.get("users/#{user}/repos")
+  def repo_data(user)
+    client.get("users/#{user}/repos").map { |repo| {label: repo.name, value: repo.size} }
   end
 
   def follower_repos(user)

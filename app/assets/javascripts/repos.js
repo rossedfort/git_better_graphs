@@ -1,18 +1,11 @@
-function repos() {
+function populateRepoDropdown() {
   $.ajax({
     type:    "GET",
     url:     "http://localhost:3000/users/" + userName + "/repo_data",
     success: function(data) {
-      var sizes = new Array();
-      var names = new Array();
-
       for (var i = 0; i < data.users.length; i++) {
-        sizes.push(data.users[i][52][1]);
-        names.push(data.users[i][1][1]);
-      }
-      for (var i = 0; i < names.length; i++) {
         $("#repoSelect").append(
-          "<option id=repoSelectOption value=" + names[i] + ">" + names[i] + "</option>"
+          "<option id=repoSelectOption value=" + data.users[i].label + ">" + data.users[i].label + "</option>"
         )
       }
     },
@@ -20,7 +13,8 @@ function repos() {
       console.log("error")
     }
   });
-
+}
+function populateUserData() {
   $.ajax({
     type:    "GET",
     url:     "http://localhost:3000/users/" + userName + "/user_data",
@@ -36,7 +30,7 @@ function repos() {
   });
 }
 
-function getRepo() {
+function getRepoLink() {
   $('#repoSelect').change(function() {
     var repoName = $("#repoSelect option:selected").text();
     document.location.href = "http://localhost:3000/users/" + userName + "/repos/" + repoName
