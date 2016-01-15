@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  get '/search', to: 'users#show'
+  get '/search', to: 'explore#search'
 
   get 'users/:user_id/repos/:id/specific_repo_data', to: 'repos#specific_repo_data', defaults: {format: :json}
   get 'users/:user_id/repos/:id/language_data', to: 'repos#language_data', defaults: {format: :json}

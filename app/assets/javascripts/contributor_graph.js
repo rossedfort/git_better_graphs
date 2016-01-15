@@ -1,7 +1,7 @@
 function populateContributorData() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repos/" + repoName + "/contributor_data",
+    url:     "/users/" + userName + "/repos/" + repoName + "/contributor_data",
     success: function(data) {
       $("#repoContributors").append(
         data.repos.length
@@ -14,7 +14,7 @@ function populateContributorData() {
 }
 
 function buildContributorGraph(data) {
-  $.getJSON("http://localhost:3000/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
 
   function drawContributorGraph(data) {
     var w = 400;

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row center">
+    <div class="col s4 offset-s4">
+      <h5><%= @results.total_count %> Results!</h5>
+      <% @results.items.each do |result| %>
+      <p>
+        <%= link_to result.login, user_path(result.login) %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>

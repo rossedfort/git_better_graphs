@@ -13,12 +13,20 @@ class User < ActiveRecord::Base
     GithubService.new
   end
 
+  def self.search(user)
+    service.search(user)
+  end
+
   def self.repo_data(user)
     service.repo_data(user)
   end
 
   def self.followers(user)
     service.followers(user)
+  end
+
+  def self.following(user)
+    service.following(user)
   end
 
   def self.data(user)

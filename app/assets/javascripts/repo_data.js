@@ -1,7 +1,7 @@
 function getRepoData() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repos/" + repoName + "/specific_repo_data",
+    url:     "/users/" + userName + "/repos/" + repoName + "/specific_repo_data",
     success: function(repo_data) {
       $("#repoName").append(repo_data[1][1]);
       $("#repoDescription").append(repo_data[6][1]);
@@ -20,7 +20,7 @@ function getRepoData() {
 function getCommitData() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repos/" + repoName + "/commit_data",
+    url:     "/users/" + userName + "/repos/" + repoName + "/commit_data",
     success: function(commit_data) {
       $("#commitCount").append(
         commit_data

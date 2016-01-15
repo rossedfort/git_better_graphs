@@ -8,7 +8,7 @@
       </p>
       <% end %>
     </div>
-    <div class="col s6">
+    <div class="col s6 center">
       <h5>Search for a user Below!</h5>
       <%= form_tag("/search", method: "get") do %>
       <%= label_tag(:id, "Search for:") %>
@@ -16,5 +16,14 @@
       <%= submit_tag("Search") %>
       <% end %>
     </div>
+    <div class="col s3 right-align">
+      <h5>Following</h5>
+      <% @following.each do |following| %>
+      <p>
+        <%= link_to following.login, user_path(following.login) %>
+      </p>
+      <% end %>
+    </div>
+
   </div>
 </div>

@@ -1,7 +1,7 @@
 function populateRepoDropdown() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/repo_data",
+    url:     "/users/" + userName + "/repo_data",
     success: function(data) {
       for (var i = 0; i < data.users.length; i++) {
         $("#repoSelect").append(
@@ -17,7 +17,7 @@ function populateRepoDropdown() {
 function populateUserData() {
   $.ajax({
     type:    "GET",
-    url:     "http://localhost:3000/users/" + userName + "/user_data",
+    url:     "/users/" + userName + "/user_data",
     success: function(data) {
       $("#userData").append(data[0][1]);
       $("#userRepoCount").append(data[24][1]);
@@ -33,6 +33,6 @@ function populateUserData() {
 function getRepoLink() {
   $('#repoSelect').change(function() {
     var repoName = $("#repoSelect option:selected").text();
-    document.location.href = "http://localhost:3000/users/" + userName + "/repos/" + repoName
+    document.location.href = "/users/" + userName + "/repos/" + repoName
   });
 }

@@ -17,6 +17,10 @@ class GithubService
     client.get("users/#{user}/followers")
   end
 
+  def following(user)
+    client.get("users/#{user}/following")
+  end
+
   def data(user)
     client.get("users/#{user}")
   end
@@ -37,6 +41,9 @@ class GithubService
     client.get("/repos/#{user_name}/#{repo_name}/stats/contributors").map { |contribution| {label: contribution.author.login, value: contribution.total} }
   end
 
+  def search(user)
+    client.get("/search/users?q=#{user}")
+  end
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end

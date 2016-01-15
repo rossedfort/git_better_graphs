@@ -1,5 +1,5 @@
 function buildLanguageGraph() {
-  $.getJSON("http://localhost:3000/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph)
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph)
 
   function drawLanguageGraph(data) {
     var w = 400;
