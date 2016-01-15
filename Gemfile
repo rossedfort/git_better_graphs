@@ -15,7 +15,6 @@ gem 'figaro'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
 gem 'responders'
-gem 'rails_12factor', group: :production
 gem 'active_model_serializers'
 
 group :development, :test do
@@ -26,4 +25,9 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  gem 'newrelic_rpm'
+  gem 'rails_12factor'
 end
