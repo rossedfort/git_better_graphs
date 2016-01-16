@@ -2,11 +2,13 @@
   <div class="row">
     <div class="col s3">
       <h5>Followers</h5>
-      <% @followers.each do |follower| %>
-      <p>
-        <%= link_to follower.login, user_path(follower.login) %>
-      </p>
-      <% end %>
+      <div class="followers">
+        <% @followers.each do |follower| %>
+        <p>
+          <%= link_to follower.login, user_path(follower.login) %>
+        </p>
+        <% end %>
+      </div>
     </div>
     <div class="col s6 center">
       <h5>Search for a user Below!</h5>
@@ -18,12 +20,13 @@
     </div>
     <div class="col s3 right-align">
       <h5>Following</h5>
-      <% @following.each do |following| %>
-      <p>
-        <%= link_to following.login, user_path(following.login) %>
-      </p>
-      <% end %>
+      <div class="following">
+        <% @following.each do |following| %>
+        <p>
+          <%= link_to following.login, user_path(following.login) %>
+        </p>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>

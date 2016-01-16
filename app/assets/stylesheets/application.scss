@@ -140,6 +140,25 @@ input[type=text]:focus {
   margin-left: 150px;
 }
 
+.contributorGraph {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
 .page-footer .container {
   background-color: inherit;
+}
+
+.followers {
+  padding-left: 10px;
+  border: 1px solid #cccccc;
+  height: 500px;
+  overflow: scroll;
+}
+
+.following {
+  padding-right: 10px;
+  border: 1px solid #cccccc;
+  height: 500px;
+  overflow: scroll;
 }
