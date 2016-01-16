@@ -34,7 +34,7 @@ class GithubService
   end
 
   def commit_data(user_name, repo_name)
-    client.get("/repos/#{user_name}/#{repo_name}/stats/commit_activity").map(&:total).reduce(:+)
+    client.get("/repos/#{user_name}/#{repo_name}/stats/commit_activity")
   end
 
   def contributor_data(user_name, repo_name)

@@ -28,4 +28,5 @@ $(document).ready(function(){
   buildLanguageGraph();
   populateContributorData();
   buildContributorGraph();
+  getCommitActivity();
 });

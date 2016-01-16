@@ -140,11 +140,6 @@ input[type=text]:focus {
   margin-left: 150px;
 }
 
-.contributorGraph {
-  max-height: 200px;
-  overflow-y: scroll;
-}
-
 .page-footer .container {
   background-color: inherit;
 }
@@ -161,4 +156,17 @@ input[type=text]:focus {
   border: 1px solid #cccccc;
   height: 500px;
   overflow: scroll;
+}
+
+#commitGraph path {
+  stroke: rgb(49, 130, 189);
+  stroke-width: 2;
+  fill: none;
+}
+
+#commitGraph .axis path,
+#commitGraph .axis line {
+    fill: none;
+    stroke: #cccccc;
+    stroke-width: 1;
 }

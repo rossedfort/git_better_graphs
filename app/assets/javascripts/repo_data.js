@@ -16,18 +16,3 @@ function getRepoData() {
     }
   })
 }
-
-function getCommitData() {
-  $.ajax({
-    type:    "GET",
-    url:     "/users/" + userName + "/repos/" + repoName + "/commit_data",
-    success: function(commit_data) {
-      $("#commitCount").append(
-        commit_data
-      );
-    },
-    error: function(xhr) {
-      console.log(xhr.error)
-    }
-  })
-}
