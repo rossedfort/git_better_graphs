@@ -132,12 +132,8 @@ input[type=text]:focus {
   box-shadow: 0 1px 0 0 #cccccc !important;
 }
 
-#languageDataGraph {
-  margin-left: 150px;
-}
-
-#contributorDataGraph {
-  margin-left: 150px;
+.graphs{
+  margin-left: 75px;
 }
 
 .page-footer .container {
@@ -151,11 +147,23 @@ input[type=text]:focus {
   overflow: scroll;
 }
 
+.hidden {
+  display: none;
+}
+
 .following {
   padding-right: 10px;
   border: 1px solid #cccccc;
   height: 500px;
   overflow: scroll;
+}
+
+.btn {
+  background-color: rgb(49, 130, 189);
+}
+
+#commitGraph {
+  margin-left: -25px;
 }
 
 #commitGraph path {

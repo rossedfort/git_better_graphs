@@ -42,16 +42,13 @@
       </table>
     </div>
     <div class="col s6 offset-s1 small-top-margin">
-      <div id="languageDataGraph"></div>
-    </div>
-  </div>
-  <div class="row small-top-margin">
-    <div class="col s4">
-      <div id="commitGraph"></div>
-    </div>
-    <div class="col s6 offset-s1">
-      <div class="contributorGraph">
-        <div id="contributorDataGraph"></div>
+      <button class="btn" type="button" name="language" id="languageGraphButton">Language Breakdown</button>
+      <button class="btn" type="button" name="commit" id="commitGraphButton">Commit History</button>
+      <button class="btn" type="button" name="contributor" id="contributoGraphButton">Contributor Breakdown</button>
+      <div class="graphs med-top-margin">
+        <div class="hidden" id="languageDataGraph"></div>
+        <div class="hidden" id="commitGraph"></div>
+        <div class="hidden" id="contributorDataGraph"></div>
       </div>
     </div>
   </div>
