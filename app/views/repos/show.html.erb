@@ -42,9 +42,20 @@
       </table>
     </div>
     <div class="col s6 offset-s1 small-top-margin">
-      <button class="btn" type="button" name="language" id="languageGraphButton">Language Breakdown</button>
-      <button class="btn" type="button" name="commit" id="commitGraphButton">Commit History</button>
-      <button class="btn" type="button" name="contributor" id="contributoGraphButton">Contributor Breakdown</button>
+      <form action="#">
+        <p class="option">
+          <input type="checkbox" id="contributoGraphButton">
+          <label for="contributoGraphButton">Contributor</label>
+        </p>
+        <p class="option">
+          <input type="checkbox" id="languageGraphButton">
+          <label for="languageGraphButton">Language</label>
+        </p>
+        <p class="option">
+          <input type="checkbox" id="commitGraphButton">
+          <label for="commitGraphButton">Commits</label>
+        </p>
+      </form>
       <div class="graphs med-top-margin">
         <div class="hidden" id="languageDataGraph"></div>
         <div class="hidden" id="commitGraph"></div>
