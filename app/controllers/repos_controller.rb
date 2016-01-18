@@ -21,6 +21,14 @@ class ReposController < ApplicationController
     end
   end
 
+  def commit_activity
+    respond_to do |format|
+      format.json {
+        render :json => User.commit_activity(params[:user_id], params[:id])
+      }
+    end
+  end
+
   def language_data
     data = User.language_data(params[:user_id], params[:id])
     formatted_data = data.map do |name, size|

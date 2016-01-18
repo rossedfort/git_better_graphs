@@ -28,4 +28,14 @@ $(document).ready(function(){
   buildLanguageGraph();
   populateContributorData();
   buildContributorGraph();
+  getCommitActivity();
+  $("#languageGraphButton").click(function() {
+    $("#languageDataGraph").toggleClass( "hidden" );
+  });
+  $("#commitGraphButton").click(function() {
+    $("#commitGraph").toggleClass( "hidden" );
+  });
+  $("#contributoGraphButton").click(function() {
+    $("#contributorDataGraph").toggleClass( "hidden" );
+  });
 });

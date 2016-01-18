@@ -34,7 +34,7 @@ class GithubService
   end
 
   def commit_data(user_name, repo_name)
-    client.get("/repos/#{user_name}/#{repo_name}/stats/commit_activity").map(&:total).reduce(:+)
+    client.get("/repos/#{user_name}/#{repo_name}/stats/commit_activity")
   end
 
   def contributor_data(user_name, repo_name)
@@ -44,6 +44,7 @@ class GithubService
   def search(user)
     client.get("/search/users?q=#{user}")
   end
+  
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end

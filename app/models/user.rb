@@ -38,7 +38,13 @@ class User < ActiveRecord::Base
   end
 
   def self.commit_data(user_name, repo_name)
-    service.commit_data(user_name, repo_name)
+    service.commit_data(user_name, repo_name).map(&:total).reduce(:+)
+  end
+
+  def self.commit_activity(user_name, repo_name)
+    stuff = service.commit_data(user_name, repo_name).map do |commit|
+      {week: parse_time(commit.week), amount: commit.total}
+    end
   end
 
   def self.language_data(user_name, repo_name)
@@ -47,5 +53,9 @@ class User < ActiveRecord::Base
 
   def self.contributor_data(user_name, repo_name)
     service.contributor_data(user_name, repo_name)
+  end
+
+  def self.parse_time(time)
+    DateTime.strptime(time.to_s, '%s').strftime("%e-%b-%y")
   end
 end

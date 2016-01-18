@@ -81,6 +81,10 @@ main {
   margin-top: 25px;
 }
 
+.large-top-margin {
+  margin: 150px;
+}
+
 .flash_notice {
   background-color: #4caf50;
   text-align: center;
@@ -110,6 +114,10 @@ td, th {
   display: none;
 }
 
+.repo-data {
+  min-height: 600px;
+}
+
 .repo-select-label {
   position: relative;
   top: 33px;
@@ -132,17 +140,8 @@ input[type=text]:focus {
   box-shadow: 0 1px 0 0 #cccccc !important;
 }
 
-#languageDataGraph {
-  margin-left: 150px;
-}
-
-#contributorDataGraph {
-  margin-left: 150px;
-}
-
-.contributorGraph {
-  max-height: 200px;
-  overflow-y: scroll;
+.graphs{
+  margin-left: 75px;
 }
 
 .page-footer .container {
@@ -151,14 +150,54 @@ input[type=text]:focus {
 
 .followers {
   padding-left: 10px;
-  border: 1px solid #cccccc;
   height: 500px;
   overflow: scroll;
 }
 
+.hidden {
+  display: none;
+}
+
 .following {
   padding-right: 10px;
-  border: 1px solid #cccccc;
   height: 500px;
   overflow: scroll;
+}
+
+.btn {
+  background-color: rgb(49, 130, 189);
+}
+
+#commitGraph {
+  margin-left: -25px;
+}
+
+#commitGraph path {
+  stroke: rgb(49, 130, 189);
+  stroke-width: 2;
+  fill: none;
+}
+
+#commitGraph .axis path,
+#commitGraph .axis line {
+    fill: none;
+    stroke: #cccccc;
+    stroke-width: 1;
+}
+
+.btn-small {
+  line-height: 25px;
+  height: 25px;
+  padding: 0 .5rem .5rem;
+  font-size: 8px;
+  width: 75px;
+  margin-bottom: 3px;
+}
+
+.option {
+  margin-right: 20px;
+}
+
+.option label {
+  margin-left: 0px;
 }

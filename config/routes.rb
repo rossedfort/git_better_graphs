@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/repos/:id/specific_repo_data', to: 'repos#specific_repo_data', defaults: {format: :json}
   get 'users/:user_id/repos/:id/language_data', to: 'repos#language_data', defaults: {format: :json}
   get 'users/:user_id/repos/:id/commit_data', to: 'repos#commit_data', defaults: {format: :json}
+  get 'users/:user_id/repos/:id/commit_activity', to: 'repos#commit_activity', defaults: {format: :json}
   get 'users/:user_id/repos/:id/contributor_data', to: 'repos#contributor_data', defaults: {format: :json}
 
   get 'users/:id/repo_data', to: 'users#repo_data', defaults: {format: :json}
