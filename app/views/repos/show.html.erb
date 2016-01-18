@@ -2,11 +2,30 @@
 <%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
 
 <div class="container repo-data">
-  <div class="small-top-margin">
-    <h5>name:</h5>
-    <p id="repoName"></p><br>
-    <h5>description:</h5>
-    <p id="repoDescription"></p>
+  <div class="row">
+    <div class="col s6">
+      <h5>name:</h5>
+      <p id="repoName"></p><br>
+      <h5>description:</h5>
+      <p id="repoDescription"></p>
+    </div>
+    <div class="col s6 center">
+      <h5>Pick a Graph!</h5>
+      <form action="#">
+        <p class="option">
+          <input type="checkbox" id="contributoGraphButton">
+          <label for="contributoGraphButton">Contributor</label>
+        </p>
+        <p class="option">
+          <input type="checkbox" id="languageGraphButton">
+          <label for="languageGraphButton">Language</label>
+        </p>
+        <p class="option">
+          <input type="checkbox" id="commitGraphButton">
+          <label for="commitGraphButton">Commits</label>
+        </p>
+      </form>
+    </div>
   </div>
   <div class="row">
     <div class="col s4">
@@ -41,25 +60,11 @@
         </tr>
       </table>
     </div>
-    <div class="col s6 offset-s1 small-top-margin">
-      <form action="#">
-        <p class="option">
-          <input type="checkbox" id="contributoGraphButton">
-          <label for="contributoGraphButton">Contributor</label>
-        </p>
-        <p class="option">
-          <input type="checkbox" id="languageGraphButton">
-          <label for="languageGraphButton">Language</label>
-        </p>
-        <p class="option">
-          <input type="checkbox" id="commitGraphButton">
-          <label for="commitGraphButton">Commits</label>
-        </p>
-      </form>
+    <div class="col s6 offset-s1 small-top-margin center">
       <div class="graphs med-top-margin">
         <div class="hidden" id="languageDataGraph"></div>
-        <div class="hidden" id="commitGraph"></div>
         <div class="hidden" id="contributorDataGraph"></div>
+        <div class="hidden" id="commitGraph"></div>
       </div>
     </div>
   </div>

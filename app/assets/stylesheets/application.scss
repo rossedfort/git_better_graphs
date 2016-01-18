@@ -81,6 +81,10 @@ main {
   margin-top: 25px;
 }
 
+.large-top-margin {
+  margin: 150px;
+}
+
 .flash_notice {
   background-color: #4caf50;
   text-align: center;
@@ -108,6 +112,10 @@ td, th {
 
 .x.axis path {
   display: none;
+}
+
+.repo-data {
+  min-height: 600px;
 }
 
 .repo-select-label {

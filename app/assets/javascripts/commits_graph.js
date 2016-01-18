@@ -26,18 +26,21 @@ function getCommitActivity() {
       var margin = {top: 30, right: 20, bottom: 30, left: 50},
       width = 500 - margin.left - margin.right,
       height = 220 - margin.top - margin.bottom;
-
+      var parseDate = d3.time.format("%d-%b-%y").parse;
+      data.repos.forEach(function(d) {
+        d.date = parseDate(d.week);
+        d.amount = +d.amount;
+      });
       var x = d3.time.scale().range([0, width]);
       var y = d3.scale.linear().range([height, 0]);
 
       var xAxis = d3.svg.axis().scale(x)
-      .orient("bottom").ticks(5);
+      .orient("bottom").ticks(3);
 
       var yAxis = d3.svg.axis().scale(y)
       .orient("left").ticks(5);
-
       var valueline = d3.svg.line()
-      .x(function(d) { return x(d.week); })
+      .x(function(d) { return x(d.date); })
       .y(function(d) { return y(d.amount); });
 
       var svg = d3.select("#commitGraph")
@@ -48,7 +51,7 @@ function getCommitActivity() {
       .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
 
-      x.domain(d3.extent(data.repos, function(d) { return d.week; }));
+      x.domain(d3.extent(data.repos, function(d) { return d.date; }));
       y.domain([0, d3.max(data.repos, function(d) { return d.amount; })]);
 
       svg.append("path")

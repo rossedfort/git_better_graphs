@@ -44,6 +44,7 @@ class GithubService
   def search(user)
     client.get("/search/users?q=#{user}")
   end
+  
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
