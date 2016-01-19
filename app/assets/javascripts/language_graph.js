@@ -2,8 +2,8 @@ function buildLanguageGraph() {
   $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph)
 
   function drawLanguageGraph(data) {
-    var w = 400;
-    var h = 200;
+    var w = 700;
+    var h = 400;
     var r = h/2;
     var legendRectSize = 18;
     var legendSpacing = 4;
@@ -34,7 +34,7 @@ function buildLanguageGraph() {
     .attr('transform', function(d, i) {
       var height = legendRectSize + legendSpacing;
       var offset =  height * color.domain().length / 2;
-      var horz = 10 * legendRectSize;
+      var horz = 20 * legendRectSize;
       var vert = i * height - offset;
       return 'translate(' + horz + ',' + vert + ')';
     });

@@ -115,7 +115,19 @@ td, th {
 }
 
 .repo-data {
-  min-height: 600px;
+  min-height: 150px;
+}
+
+.repo-data p, h5 {
+  display: inline;
+}
+
+.repo-data table th {
+  color: rgb(49, 130, 189);
+}
+
+.repo-graphs .container {
+  min-height: 530px;
 }
 
 .repo-select-label {
@@ -124,9 +136,6 @@ td, th {
   right: 105px;
 }
 
-.repo-data p, h5 {
-  display: inline;
-}
 
 .container {
   margin-top: 25px;
@@ -164,10 +173,6 @@ input[type=text]:focus {
   overflow: scroll;
 }
 
-.btn {
-  background-color: rgb(49, 130, 189);
-}
-
 #commitGraph {
   margin-left: -25px;
 }
@@ -183,15 +188,6 @@ input[type=text]:focus {
     fill: none;
     stroke: #cccccc;
     stroke-width: 1;
-}
-
-.btn-small {
-  line-height: 25px;
-  height: 25px;
-  padding: 0 .5rem .5rem;
-  font-size: 8px;
-  width: 75px;
-  margin-bottom: 3px;
 }
 
 .option {

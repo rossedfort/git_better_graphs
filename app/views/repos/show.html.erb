@@ -1,77 +1,73 @@
 <%= javascript_tag "var userName = '#{User.data(params[:user_id]).login}';" %>
 <%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
 
-<div class="container repo-data">
-  <div class="row">
-    <div class="col s6">
-      <h5>name:</h5>
-      <p id="repoName"></p><br>
-      <h5>description:</h5>
-      <p id="repoDescription"></p>
-    </div>
-    <div class="col s6 center">
-      <h5>Pick a Graph!</h5>
-      <form action="#">
-        <p class="option">
-          <input type="checkbox" id="contributorGraphButton">
-          <label for="contributorGraphButton">Contributor</label>
-        </p>
-        <p class="option">
-          <input type="checkbox" id="languageGraphButton">
-          <label for="languageGraphButton">Language</label>
-        </p>
-        <p class="option">
-          <input type="checkbox" id="commitGraphButton">
-          <label for="commitGraphButton">Commits</label>
-        </p>
-        <p class="option">
-          <input type="checkbox" id="freqeuncyGraphButton">
-          <label for="freqeuncyGraphButton">Frequency</label>
-        </p>
-      </form>
+<div class="repo-data">
+  <div class="container center">
+    <div class="row">
+      <div class="col s12">
+        <h5>name:</h5>
+        <p id="repoName"></p>
+        <h5>description:</h5>
+        <p id="repoDescription"></p>
+      </div>
+      <div class="col s12">
+        <table class="small-top-margin bordered highlight">
+          <tr>
+            <th>size</th>
+            <th>primary language</th>
+            <th>watchers</th>
+            <th>commits</th>
+            <th>forks</th>
+            <th>open issues</th>
+            <th>contributors</th>
+          </tr>
+          <tr>
+            <td id="repoSize"></td>
+            <td id="repoLanguage"></td>
+            <td id="repoWatchers"></td>
+            <td id="commitCount"></td>
+            <td id="repoForks"></td>
+            <td id="repoOpenIssues"></td>
+            <td id="repoContributors"></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s4">
-      <table class="small-top-margin centered bordered highlight">
-        <tr>
-          <th>size:</th>
-          <td id="repoSize"></td>
-        </tr>
-        <tr>
-          <th>primary language:</th>
-          <td id="repoLanguage"></td>
-        </tr>
-        <tr>
-          <th>watchers:</th>
-          <td id="repoWatchers"></td>
-        </tr>
-        <tr>
-          <th>commits:</th>
-          <td id="commitCount"></td>
-        </tr>
-        <tr>
-          <th>forks:</th>
-          <td id="repoForks"></td>
-        </tr>
-        <tr>
-          <th>open issues:</th>
-          <td id="repoOpenIssues"></td>
-        </tr>
-        <tr>
-          <th>contributors:</th>
-          <td id="repoContributors"></td>
-        </tr>
-      </table>
-    </div>
-    <div class="col s6 offset-s1 small-top-margin center">
-      <div class="graphs med-top-margin">
-        <% cache(action: 'show', action_suffix: "all_graphs") do %>
+</div>
+<div class="repo-graphs">
+  <div class="container">
+    <div class="row">
+      <div class="col s3">
+        <h5>Pick a Graph!</h5>
+        <form action="#">
+          <p class="option">
+            <input type="checkbox" id="contributorGraphButton">
+            <label for="contributorGraphButton">Contributor</label>
+          </p>
+          <p class="option">
+            <input type="checkbox" id="languageGraphButton">
+            <label for="languageGraphButton">Language</label>
+          </p>
+          <p class="option">
+            <input type="checkbox" id="commitGraphButton">
+            <label for="commitGraphButton">Commits</label>
+          </p>
+          <p class="option">
+            <input type="checkbox" id="freqeuncyGraphButton">
+            <label for="freqeuncyGraphButton">Frequency</label>
+          </p>
+        </form>
+      </div>
+      <div class="col s8">
+        <div class="graphs center">
+          <% cache(action: 'show', action_suffix: "all_graphs") do %>
           <div class="hidden" id="languageDataGraph"></div>
           <div class="hidden" id="contributorDataGraph"></div>
           <div class="hidden" id="commitGraph"></div>
           <div class="hidden" id="frequencyGraph"></div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

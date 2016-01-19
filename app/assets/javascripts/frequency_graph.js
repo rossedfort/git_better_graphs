@@ -18,8 +18,8 @@ function buildFrequencyGraph() {
         bottom: 10,
         left: 10
       },
-      width = 500 - margin.left - margin.right,
-      height = 220 - margin.top - margin.bottom;
+      width = 700 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
       var x = d3.scale.linear()
       .range([0, width])

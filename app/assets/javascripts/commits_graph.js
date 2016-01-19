@@ -24,8 +24,8 @@ function getCommitActivity() {
       getCommitActivity();
     }else {
       var margin = {top: 30, right: 20, bottom: 30, left: 50},
-      width = 500 - margin.left - margin.right,
-      height = 220 - margin.top - margin.bottom;
+      width = 700 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
       var parseDate = d3.time.format("%d-%b-%y").parse;
       data.repos.forEach(function(d) {
         d.date = parseDate(d.week);
