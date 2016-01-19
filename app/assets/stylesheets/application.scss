@@ -58,11 +58,8 @@ main {
   flex: 1 0 auto;
 }
 
-.canvas {
-  margin-top: 50px;
-  height: 700px;
-  width: 1200px;
-  background-color: #666666;
+.row .col {
+  padding: 0px 0px 0px 0px;
 }
 
 .slider{
@@ -149,8 +146,26 @@ input[type=text]:focus {
   box-shadow: 0 1px 0 0 #cccccc !important;
 }
 
-.graphs{
+[type="radio"]:checked + label:after {
+  border: 1px solid rgb(49, 130, 189) !important;
+  background-color: rgb(49, 130, 189);
+}
+
+[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+  padding-left: 25px;
+  margin-right: 25px;
+}
+
+.graphs {
   margin-left: 75px;
+}
+
+.graphs svg {
+  margin-top: 50px;
+}
+
+.graphs h6 {
+  display: inline;
 }
 
 .page-footer .container {
@@ -209,4 +224,15 @@ input[type=text]:focus {
 
 #frequencyGraph .bar{
     fill: #6cc644;
+}
+.text-blue {
+  color: rgb(49, 130, 189);
+}
+
+.text-red {
+  color: #A52A2A;
+}
+
+.text-green {
+  color: #6cc644;
 }

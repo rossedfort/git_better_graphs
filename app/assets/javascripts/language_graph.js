@@ -1,5 +1,8 @@
 function buildLanguageGraph() {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph)
+  $(".languageLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph).always(function() {
+    $(".languageLoader").hide();
+  });
 
   function drawLanguageGraph(data) {
     var w = 700;

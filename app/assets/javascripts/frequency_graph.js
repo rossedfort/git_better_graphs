@@ -1,5 +1,8 @@
 function buildFrequencyGraph() {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/code_frequency").then(drawFrequencyGraph);
+  $(".frequencyLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/code_frequency").then(drawFrequencyGraph).always(function() {
+    $(".frequencyLoader").hide();
+  });
 
   function drawFrequencyGraph(data) {
     if (data.repos[0] == undefined) {

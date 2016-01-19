@@ -19,6 +19,7 @@
 $(document).ready(function(){
   $('.slider').slider({full_width: true});
   $('.tooltipped').tooltip({delay: 50});
+  $('select').material_select();
   userRepoData();
   populateRepoDropdown();
   populateUserData();
@@ -31,15 +32,19 @@ $(document).ready(function(){
   getCommitActivity();
   buildFrequencyGraph();
   $("#languageGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
     $("#languageDataGraph").toggleClass( "hidden" );
   });
   $("#commitGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
     $("#commitGraph").toggleClass( "hidden" );
   });
   $("#contributorGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
     $("#contributorDataGraph").toggleClass( "hidden" );
   });
   $("#freqeuncyGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
     $("#frequencyGraph").toggleClass( "hidden" );
   });
 });

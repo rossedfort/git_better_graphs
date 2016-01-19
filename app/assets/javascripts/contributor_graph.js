@@ -18,7 +18,10 @@ function populateContributorData() {
 }
 
 function buildContributorGraph(data) {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
+  $(".contributorLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph).always(function() {
+    $(".contributorLoader").hide();
+  });
   function drawContributorGraph(data) {
     if (data.repos[0] == undefined) {
       buildContributorGraph();

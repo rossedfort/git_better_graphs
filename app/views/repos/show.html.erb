@@ -2,33 +2,61 @@
 <%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
 
 <div class="repo-data">
-  <div class="container center">
+  <div class="container">
     <div class="row">
-      <div class="col s12">
+      <div class="col s8">
         <h5>name:</h5>
-        <p id="repoName"></p>
+        <p id="repoName"></p><br>
         <h5>description:</h5>
-        <p id="repoDescription"></p>
+        <p id="repoDescription"></p><br>
+        <h5>size:</h5>
+        <p id="repoSize"></p><br>
+        <h5>primary language:</h5>
+        <p id="repoLanguage"></p><br>
+        <div class="col s8 small-top-margin">
+          <h5>pick a graph!</h5>
+          <form action="#">
+              <p>
+                <input name="group1" type="radio" id="contributorGraphButton" />
+                <label for="contributorGraphButton">contributor</label>
+              </p>
+              <p>
+                <input name="group1" type="radio" id="languageGraphButton" />
+                <label for="languageGraphButton">language</label>
+              </p>
+              <p>
+                <input name="group1" type="radio" id="commitGraphButton"  />
+                <label for="commitGraphButton">commit</label>
+              </p>
+                <p>
+                  <input name="group1" type="radio" id="freqeuncyGraphButton" />
+                  <label for="freqeuncyGraphButton">frequency</label>
+              </p>
+            </form>
+        </div>
       </div>
-      <div class="col s12">
-        <table class="small-top-margin bordered highlight">
+      <div class="col s3">
+        <table class="bordered highlight">
           <tr>
-            <th>size</th>
-            <th>primary language</th>
-            <th>watchers</th>
-            <th>commits</th>
-            <th>forks</th>
-            <th>open issues</th>
-            <th>contributors</th>
+            <th>watchers:</th>
+            <td id="repoWatchers"></td>
           </tr>
           <tr>
-            <td id="repoSize"></td>
-            <td id="repoLanguage"></td>
-            <td id="repoWatchers"></td>
+            <th>commits:</th>
             <td id="commitCount"></td>
+          </tr>
+          <tr>
+            <th>forks:</th>
             <td id="repoForks"></td>
+          </tr>
+          <tr>
+            <th>open issues:</th>
             <td id="repoOpenIssues"></td>
+          </tr>
+          <tr>
+            <th>contributors:</th>
             <td id="repoContributors"></td>
+          </tr>
           </tr>
         </table>
       </div>
@@ -38,35 +66,35 @@
 <div class="repo-graphs">
   <div class="container">
     <div class="row">
-      <div class="col s3">
-        <h5>Pick a Graph!</h5>
-        <form action="#">
-          <p class="option">
-            <input type="checkbox" id="contributorGraphButton">
-            <label for="contributorGraphButton">Contributor</label>
-          </p>
-          <p class="option">
-            <input type="checkbox" id="languageGraphButton">
-            <label for="languageGraphButton">Language</label>
-          </p>
-          <p class="option">
-            <input type="checkbox" id="commitGraphButton">
-            <label for="commitGraphButton">Commits</label>
-          </p>
-          <p class="option">
-            <input type="checkbox" id="freqeuncyGraphButton">
-            <label for="freqeuncyGraphButton">Frequency</label>
-          </p>
-        </form>
-      </div>
-      <div class="col s8">
+      <div class="col s12">
         <div class="graphs center">
-          <% cache(action: 'show', action_suffix: "all_graphs") do %>
-          <div class="hidden" id="languageDataGraph"></div>
-          <div class="hidden" id="contributorDataGraph"></div>
-          <div class="hidden" id="commitGraph"></div>
-          <div class="hidden" id="frequencyGraph"></div>
-          <% end %>
+          <div class="center">
+            <h5>your graphs will appear here!</h5>
+          </div>
+          <div class="hidden" id="languageDataGraph">
+            <h6>Shows the breakdown of what languages are used in the repo</h6><br>
+            <div class="languageLoader large-top-margin center">
+              <%= image_tag("/assets/loader.svg") %>
+            </div>
+          </div>
+          <div class="hidden" id="contributorDataGraph">
+            <h6>Shows the breakdown of who has contributed to the repo</h6><br>
+            <div class="contributorLoader large-top-margin center">
+              <%= image_tag("/assets/loader.svg") %>
+            </div>
+          </div>
+          <div class="hidden" id="commitGraph">
+            <h6>Compares the amount of</h6><h6 class="text-blue"> commits </h6><h6>against time in the past year</h6><br>
+            <div class="commitLoader large-top-margin center">
+              <%= image_tag("/assets/loader.svg") %>
+            </div>
+          </div>
+          <div class="hidden" id="frequencyGraph">
+            <h6>Shows the amount of code deleted in</h6><h6 class="text-red"> red </h6><h6>and added in</h6><h6 class="text-green"> green </h6><h6>per week</h6>
+            <div class="frequencyLoader large-top-margin center">
+              <%= image_tag("/assets/loader.svg") %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
