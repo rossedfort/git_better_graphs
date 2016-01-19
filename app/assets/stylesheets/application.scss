@@ -201,3 +201,16 @@ input[type=text]:focus {
 .option label {
   margin-left: 0px;
 }
+
+.search-results {
+  max-height: 600px;
+  overflow: scroll;
+}
+
+#frequencyGraph .bar2 {
+    fill: #A52A2A;
+}
+
+#frequencyGraph .bar{
+    fill: #6cc644;
+}

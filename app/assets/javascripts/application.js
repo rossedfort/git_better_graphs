@@ -29,13 +29,17 @@ $(document).ready(function(){
   populateContributorData();
   buildContributorGraph();
   getCommitActivity();
+  buildFrequencyGraph();
   $("#languageGraphButton").click(function() {
     $("#languageDataGraph").toggleClass( "hidden" );
   });
   $("#commitGraphButton").click(function() {
     $("#commitGraph").toggleClass( "hidden" );
   });
-  $("#contributoGraphButton").click(function() {
+  $("#contributorGraphButton").click(function() {
     $("#contributorDataGraph").toggleClass( "hidden" );
+  });
+  $("#freqeuncyGraphButton").click(function() {
+    $("#frequencyGraph").toggleClass( "hidden" );
   });
 });

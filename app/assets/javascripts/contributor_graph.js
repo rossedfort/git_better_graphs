@@ -70,6 +70,7 @@ function buildContributorGraph(data) {
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
       .text(function(d, i) { return data.repos[i].label; });
+
     }
   }
 }

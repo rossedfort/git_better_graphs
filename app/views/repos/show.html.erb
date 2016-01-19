@@ -13,8 +13,8 @@
       <h5>Pick a Graph!</h5>
       <form action="#">
         <p class="option">
-          <input type="checkbox" id="contributoGraphButton">
-          <label for="contributoGraphButton">Contributor</label>
+          <input type="checkbox" id="contributorGraphButton">
+          <label for="contributorGraphButton">Contributor</label>
         </p>
         <p class="option">
           <input type="checkbox" id="languageGraphButton">
@@ -23,6 +23,10 @@
         <p class="option">
           <input type="checkbox" id="commitGraphButton">
           <label for="commitGraphButton">Commits</label>
+        </p>
+        <p class="option">
+          <input type="checkbox" id="freqeuncyGraphButton">
+          <label for="freqeuncyGraphButton">Frequency</label>
         </p>
       </form>
     </div>
@@ -62,9 +66,12 @@
     </div>
     <div class="col s6 offset-s1 small-top-margin center">
       <div class="graphs med-top-margin">
-        <div class="hidden" id="languageDataGraph"></div>
-        <div class="hidden" id="contributorDataGraph"></div>
-        <div class="hidden" id="commitGraph"></div>
+        <% cache(action: 'show', action_suffix: "all_graphs") do %>
+          <div class="hidden" id="languageDataGraph"></div>
+          <div class="hidden" id="contributorDataGraph"></div>
+          <div class="hidden" id="commitGraph"></div>
+          <div class="hidden" id="frequencyGraph"></div>
+        <% end %>
       </div>
     </div>
   </div>
