@@ -18,13 +18,16 @@ function populateContributorData() {
 }
 
 function buildContributorGraph(data) {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
+  $(".contributorLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph).always(function() {
+    $(".contributorLoader").hide();
+  });
   function drawContributorGraph(data) {
     if (data.repos[0] == undefined) {
       buildContributorGraph();
     }else {
-      var w = 400;
-      var h = 200;
+      var w = 700;
+      var h = 400;
       var r = h/2;
       var legendRectSize = 18;
       var legendSpacing = 4;
@@ -55,7 +58,7 @@ function buildContributorGraph(data) {
       .attr('transform', function(d, i) {
         var height = legendRectSize + legendSpacing;
         var offset =  height * color.domain().length / 2;
-        var horz = 10 * legendRectSize;
+        var horz = 20 * legendRectSize;
         var vert = i * height - offset;
         return 'translate(' + horz + ',' + vert + ')';
       });
@@ -70,6 +73,7 @@ function buildContributorGraph(data) {
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
       .text(function(d, i) { return data.repos[i].label; });
+
     }
   }
 }

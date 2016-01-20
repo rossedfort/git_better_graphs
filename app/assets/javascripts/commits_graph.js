@@ -18,14 +18,17 @@ function getCommitData() {
 }
 
 function getCommitActivity() {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/commit_activity").then(drawCommitGraph);
+  $(".commitLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/commit_activity").then(drawCommitGraph).always(function() {
+    $(".commitLoader").hide();
+  });
   function drawCommitGraph(data) {
     if (data.repos[0] == undefined) {
       getCommitActivity();
     }else {
       var margin = {top: 30, right: 20, bottom: 30, left: 50},
-      width = 500 - margin.left - margin.right,
-      height = 220 - margin.top - margin.bottom;
+      width = 700 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
       var parseDate = d3.time.format("%d-%b-%y").parse;
       data.repos.forEach(function(d) {
         d.date = parseDate(d.week);

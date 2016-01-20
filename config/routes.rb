@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/repos/:id/commit_data', to: 'repos#commit_data', defaults: {format: :json}
   get 'users/:user_id/repos/:id/commit_activity', to: 'repos#commit_activity', defaults: {format: :json}
   get 'users/:user_id/repos/:id/contributor_data', to: 'repos#contributor_data', defaults: {format: :json}
+  get 'users/:user_id/repos/:id/code_frequency', to: 'repos#code_frequency', defaults: {format: :json}
 
   get 'users/:id/repo_data', to: 'users#repo_data', defaults: {format: :json}
   get 'users/:id/follower_data', to: 'users#follower_data', defaults: {format: :json}
