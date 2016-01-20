@@ -31,6 +31,7 @@ $(document).ready(function(){
   buildContributorGraph();
   getCommitActivity();
   buildFrequencyGraph();
+  buildPullRequestGraph();
   $("#languageGraphButton").click(function() {
     $(".graphs").children().addClass("hidden")
     $("#languageDataGraph").toggleClass( "hidden" );
@@ -43,8 +44,12 @@ $(document).ready(function(){
     $(".graphs").children().addClass("hidden")
     $("#contributorDataGraph").toggleClass( "hidden" );
   });
-  $("#freqeuncyGraphButton").click(function() {
+  $("#frequencyGraphButton").click(function() {
     $(".graphs").children().addClass("hidden")
     $("#frequencyGraph").toggleClass( "hidden" );
+  });
+  $("#pullRequestGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
+    $("#pullRequestGraph").toggleClass( "hidden" );
   });
 });

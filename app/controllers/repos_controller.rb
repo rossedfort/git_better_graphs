@@ -28,4 +28,8 @@ class ReposController < ApplicationController
   def code_frequency
     render :json => Repo.code_frequency(params[:user_id], params[:id])
   end
+
+  def pull_requests
+    render :json => Repo.pull_requests(params[:user_id], params[:id])
+  end
 end

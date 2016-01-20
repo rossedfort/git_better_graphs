@@ -27428,7 +27428,7 @@ $(document).ready(function(){
     $(".graphs").children().addClass("hidden")
     $("#contributorDataGraph").toggleClass( "hidden" );
   });
-  $("#freqeuncyGraphButton").click(function() {
+  $("#frequencyGraphButton").click(function() {
     $(".graphs").children().addClass("hidden")
     $("#frequencyGraph").toggleClass( "hidden" );
   });

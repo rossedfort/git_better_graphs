@@ -11,6 +11,13 @@
         <p id="repoDescription"></p><br>
         <h5>primary language:</h5>
         <p id="repoLanguage"></p><br>
+        <div class="col s4 repo-dropdown">
+          <form>
+            <select class="browser-default" name="repoSelect" id="repoSelect">
+              <option disabled>choose a different repo...</option>
+            </select>
+          </form>
+        </div>
       </div>
       <div class="col s4">
         <table class="bordered highlight">
@@ -44,7 +51,8 @@
         <button id="contributorGraphButton" type="button" class="btn blue btn-small">contributor</button>
         <button id="languageGraphButton" type="button" class="btn blue btn-small">language</button>
         <button id="commitGraphButton" type="button" class="btn blue btn-small">commit</button>
-        <button id="freqeuncyGraphButton" type="button" class="btn blue btn-small">frequency</button>
+        <button id="frequencyGraphButton" type="button" class="btn blue btn-small">frequency</button>
+        <button id="pullRequestGraphButton" type="button" class="btn blue btn-small">pulls</button>
       </div>
     </div>
   </div>
@@ -52,29 +60,41 @@
 <div class="repo-graphs">
   <div class="container">
     <div class="graphs center">
-      <h5>your graphs will appear here!</h5>
+      <h5>Click a button above and your graph will appear here!</h5><br>
+      <h5>If there is no data for that repository, a graph will not appear</h5>
       <div class="hidden" id="languageDataGraph">
         <h6>Shows the breakdown of what languages are used in the repo</h6><br>
-        <div class="languageLoader large-top-margin center">
+        <div class="languageLoader large-top-margin center loader">
           <%= image_tag("loader.svg") %>
+          <h5 class="center">thinking...</h5>
         </div>
       </div>
       <div class="hidden" id="contributorDataGraph">
         <h6>Shows the breakdown of who has contributed to the repo</h6><br>
-        <div class="contributorLoader large-top-margin center">
+        <div class="contributorLoader large-top-margin center loader">
           <%= image_tag("loader.svg") %>
+          <h5 class="center">thinking...</h5>
         </div>
       </div>
       <div class="hidden" id="commitGraph">
         <h6>Compares the amount of</h6><h6 class="text-blue"> commits </h6><h6>against time in the past year</h6><br>
-        <div class="commitLoader large-top-margin center">
+        <div class="commitLoader large-top-margin center loader">
           <%= image_tag("loader.svg") %>
+          <h5 class="center">thinking...</h5>
         </div>
       </div>
       <div class="hidden" id="frequencyGraph">
         <h6>Shows the amount of code deleted in</h6><h6 class="text-red"> red </h6><h6>and added in</h6><h6 class="text-green"> green </h6><h6>per week</h6><br>
-        <div class="frequencyLoader large-top-margin center">
+        <div class="frequencyLoader large-top-margin center loader">
           <%= image_tag("loader.svg") %>
+          <h5 class="center">thinking...</h5>
+        </div>
+      </div>
+      <div class="hidden" id="pullRequestGraph">
+        <h6>Shows the amount of open vs. closed pull requests</h6><br>
+        <div class="pullRequestLoader large-top-margin center loader">
+          <%= image_tag("loader.svg") %>
+          <h5 class="center">thinking...</h5>
         </div>
       </div>
     </div>
