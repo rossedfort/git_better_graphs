@@ -1,5 +1,8 @@
 function userRepoData() {
-  $.getJSON("/users/" + userName + "/repo_data").then(draw).fail(error);
+  $(".repoLoader").show();
+  $.getJSON("/users/" + userName + "/repo_data").then(draw).fail(error).always(function () {
+    $(".repoLoader").hide();
+  });
 
   function draw(data) {
     var sizes = new Array();
