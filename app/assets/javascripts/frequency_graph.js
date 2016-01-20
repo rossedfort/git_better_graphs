@@ -21,7 +21,7 @@ function buildFrequencyGraph() {
         bottom: 10,
         left: 10
       },
-      width = 700 - margin.left - margin.right,
+      width = 800 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
       var x = d3.scale.linear()

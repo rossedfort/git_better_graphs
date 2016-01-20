@@ -26,7 +26,7 @@ function getCommitActivity() {
   $.getJSON("/users/" + userName + "/repos/" + repoName + "/commit_activity").then(drawCommitGraph).always(function() {
     $(".commitLoader").hide();
   });
-  function drawCommitGraph(raw_data) {
+  function drawCommitGraph(data) {
     if (data.repos[0] == undefined) {
       getCommitActivity();
     }else {

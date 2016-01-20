@@ -5,6 +5,7 @@
       <div class="followers">
         <% @followers.each do |follower| %>
         <p>
+          <%= image_tag("#{follower.avatar_url}") %>
           <%= link_to follower.login, user_path(follower.login) %>
         </p>
         <% end %>
@@ -24,6 +25,7 @@
         <% @following.each do |following| %>
         <p>
           <%= link_to following.login, user_path(following.login) %>
+          <%= image_tag("#{following.avatar_url}") %>
         </p>
         <% end %>
       </div>

@@ -6,6 +6,7 @@
     <div class="col s4 offset-s4 search-results">
       <% @results.items.each do |result| %>
       <p>
+        <%= image_tag("#{result.avatar_url}") %>
         <%= link_to result.login, user_path(result.login) %>
       </p>
       <% end %>
