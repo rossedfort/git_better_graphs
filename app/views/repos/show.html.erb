@@ -1,5 +1,5 @@
 <%= javascript_tag "var userName = '#{User.data(params[:user_id]).login}';" %>
-<%= javascript_tag "var repoName = '#{User.specific_repo_data(params[:user_id], params[:id]).name}';" %>
+<%= javascript_tag "var repoName = '#{Repo.specific_repo_data(params[:user_id], params[:id]).name}';" %>
 
 <div class="repo-data">
   <div class="container">

@@ -19,3 +19,4 @@
 
 /app/assets/images
 /coverage
+/test/cassettes

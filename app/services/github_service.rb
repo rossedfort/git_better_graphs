@@ -6,7 +6,7 @@ class GithubService
   end
 
   def repo_data(user)
-    client.get("users/#{user}/repos").map { |repo| {label: repo.name, value: repo.size} }
+    client.get("users/#{user}/repos")
   end
 
   def follower_repos(user)
@@ -38,7 +38,7 @@ class GithubService
   end
 
   def contributor_data(user_name, repo_name)
-    client.get("/repos/#{user_name}/#{repo_name}/stats/contributors").map { |contribution| {label: contribution.author.login, value: contribution.total} }
+    client.get("/repos/#{user_name}/#{repo_name}/stats/contributors")
   end
 
   def search(user)

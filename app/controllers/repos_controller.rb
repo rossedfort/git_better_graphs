@@ -8,7 +8,7 @@ class ReposController < ApplicationController
   def specific_repo_data
     respond_to do |format|
       format.json {
-        render :json => User.specific_repo_data(params[:user_id], params[:id])
+        render :json => Repo.specific_repo_data(params[:user_id], params[:id])
       }
     end
   end
@@ -16,7 +16,7 @@ class ReposController < ApplicationController
   def commit_data
     respond_to do |format|
       format.json {
-        render :json => User.commit_data(params[:user_id], params[:id])
+        render :json => Repo.commit_data(params[:user_id], params[:id])
       }
     end
   end
@@ -24,13 +24,13 @@ class ReposController < ApplicationController
   def commit_activity
     respond_to do |format|
       format.json {
-        render :json => User.commit_activity(params[:user_id], params[:id])
+        render :json => Repo.commit_activity(params[:user_id], params[:id])
       }
     end
   end
 
   def language_data
-    data = User.language_data(params[:user_id], params[:id])
+    data = Repo.language_data(params[:user_id], params[:id])
     formatted_data = data.map do |name, size|
       {"label" => name, "value" => size}
     end
@@ -40,7 +40,7 @@ class ReposController < ApplicationController
   def contributor_data
     respond_to do |format|
       format.json {
-        render :json => User.contributor_data(params[:user_id], params[:id])
+        render :json => Repo.contributor_data(params[:user_id], params[:id])
       }
     end
   end
@@ -48,7 +48,7 @@ class ReposController < ApplicationController
   def code_frequency
     respond_to do |format|
       format.json {
-        render :json => User.code_frequency(params[:user_id], params[:id])
+        render :json => Repo.code_frequency(params[:user_id], params[:id])
       }
     end
   end

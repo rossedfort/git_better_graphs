@@ -14,17 +14,25 @@ gem 'materialize-sass'
 gem 'figaro'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
-gem 'responders'
 gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry'
   gem 'simplecov'
+  gem 'vcr'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'mocha'
+  gem 'database_cleaner'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 group :production do
