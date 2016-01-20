@@ -6,8 +6,12 @@ function getCommitData() {
       if (commit_data == null) {
         getCommitData();
       } else {
+        var count = 0;
+        for (var i = 0; i < commit_data.repos.length; i++) {
+          count += commit_data.repos[i][1][1]
+        }
         $("#commitCount").append(
-          commit_data
+          count
         );
       }
     },
@@ -22,7 +26,7 @@ function getCommitActivity() {
   $.getJSON("/users/" + userName + "/repos/" + repoName + "/commit_activity").then(drawCommitGraph).always(function() {
     $(".commitLoader").hide();
   });
-  function drawCommitGraph(data) {
+  function drawCommitGraph(raw_data) {
     if (data.repos[0] == undefined) {
       getCommitActivity();
     }else {

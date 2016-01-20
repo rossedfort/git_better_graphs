@@ -8,17 +8,19 @@ class Repo
   end
 
   def self.commit_data(user_name, repo_name)
-    service.commit_data(user_name, repo_name).map(&:total).reduce(:+)
+    service.commit_data(user_name, repo_name)
   end
 
   def self.commit_activity(user_name, repo_name)
-    stuff = service.commit_data(user_name, repo_name).map do |commit|
+    service.commit_data(user_name, repo_name).map do |commit|
       {week: parse_time(commit.week), amount: commit.total}
     end
   end
 
   def self.language_data(user_name, repo_name)
-    service.language_data(user_name, repo_name)
+    service.language_data(user_name, repo_name).map do |name, size|
+      {"label" => name, "value" => size}
+    end
   end
 
   def self.contributor_data(user_name, repo_name)
