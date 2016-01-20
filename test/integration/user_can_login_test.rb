@@ -5,7 +5,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     stub_omniauth
     VCR.use_cassette("github_service#login") do
       visit "/"
-      click_on "Login"
+      click_link "Login"
       assert page.has_content?("Welcome, rossedfort")
     end
   end

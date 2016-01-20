@@ -22,6 +22,8 @@ class ReposControllerTest < ActionController::TestCase
       get :specific_repo_data, user_id: 'rossedfort', id: 'git_better_graphs'
 
       assert_response :success
+      assert parsed_response.flatten.include?("rossedfort")
+      assert parsed_response.flatten.include?("git_better_graphs")
     end
   end
 

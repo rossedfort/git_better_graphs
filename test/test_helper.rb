@@ -9,7 +9,6 @@ require 'webmock'
 require 'vcr'
 require 'mocha/mini_test'
 
-
 class ActiveSupport::TestCase
   include Capybara::DSL
   SimpleCov.start("rails")
@@ -27,6 +26,10 @@ class ActiveSupport::TestCase
 
   def teardown
     DatabaseCleaner.clean
+  end
+
+  def parsed_response
+    JSON.parse(response.body)
   end
 
   def stub_omniauth

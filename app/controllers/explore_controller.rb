@@ -5,7 +5,7 @@ class ExploreController < ApplicationController
   end
 
   def search
-    if params[:id] == ""      
+    if params[:id] == ""
       flash[:error] = "Please submit search parameters"
       redirect_to :back
     else
