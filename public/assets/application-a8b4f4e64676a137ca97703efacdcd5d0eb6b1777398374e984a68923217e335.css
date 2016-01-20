@@ -15861,7 +15861,7 @@ td, th {
 /* line 123, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .repo-buttons .container {
   padding: 0px 0px 0px 0px;
-  width: 330px;
+  width: 440px;
 }
 
 /* line 128, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
@@ -15963,18 +15963,13 @@ input[type=text]:focus {
 }
 
 /* line 210, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
-#commitGraph {
-  margin-left: -25px;
-}
-
-/* line 214, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 #commitGraph path {
   stroke: #3182bd;
   stroke-width: 2;
   fill: none;
 }
 
-/* line 220, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 216, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 #commitGraph .axis path,
 #commitGraph .axis line {
   fill: none;
@@ -15982,53 +15977,54 @@ input[type=text]:focus {
   stroke-width: 1;
 }
 
-/* line 227, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 223, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .option {
   margin-right: 20px;
 }
 
-/* line 231, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 227, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .option label {
   margin-left: 0px;
 }
 
-/* line 235, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 231, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .search-results {
   max-height: 600px;
   overflow: scroll;
 }
 
-/* line 240, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 236, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 #frequencyGraph .bar2 {
   fill: #A52A2A;
 }
 
-/* line 244, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 240, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 #frequencyGraph .bar {
   fill: #6cc644;
 }
 
-/* line 247, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 243, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .text-blue {
   color: #3182bd;
 }
 
-/* line 251, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 247, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .text-red {
   color: #A52A2A;
 }
 
-/* line 255, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 251, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .text-green {
   color: #6cc644;
 }
 
-/* line 259, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
-.repo-dropdown label {
-  color: red;
+/* line 255, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+.repo-dropdown select {
+  height: 25px;
+  margin-top: 10px;
 }
 
-/* line 263, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 260, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .btn-small {
   color: black !important;
   background-color: #fff !important;
@@ -16043,24 +16039,35 @@ input[type=text]:focus {
   text-transform: none;
 }
 
-/* line 276, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 273, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .followers img {
   width: 25px;
 }
 
-/* line 280, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 277, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .following img {
   width: 25px;
 }
 
-/* line 284, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 281, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .search-results {
   margin-top: 25px;
   padding: 10px 10px 10px 10px;
   background-color: #f2f2f2;
 }
 
-/* line 290, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+/* line 287, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
 .search-results img {
   width: 25px;
+}
+
+/* line 291, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+.slides img {
+  border: 2px solid #cccccc;
+}
+
+/* line 295, /Users/rossedfort/code/mod_3/projects/git_better_graphs/app/assets/stylesheets/application.scss */
+.loader h5 {
+  color: #cccccc;
+  display: inline;
 }
