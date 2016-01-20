@@ -2,6 +2,8 @@
   <div class="row center">
     <div class="col s4 offset-s4">
       <h5><%= @results.total_count %> Results!</h5>
+    </div>
+    <div class="col s4 offset-s4 search-results">
       <% @results.items.each do |result| %>
       <p>
         <%= link_to result.login, user_path(result.login) %>

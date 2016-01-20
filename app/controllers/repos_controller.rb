@@ -44,4 +44,12 @@ class ReposController < ApplicationController
       }
     end
   end
+
+  def code_frequency
+    respond_to do |format|
+      format.json {
+        render :json => User.code_frequency(params[:user_id], params[:id])
+      }
+    end
+  end
 end

@@ -44,7 +44,11 @@ class GithubService
   def search(user)
     client.get("/search/users?q=#{user}")
   end
-  
+
+  def code_frequency(user_name,repo_name)
+    client.get("/repos/#{user_name}/#{repo_name}/stats/code_frequency")
+  end
+
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end

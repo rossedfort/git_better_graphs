@@ -55,6 +55,12 @@ class User < ActiveRecord::Base
     service.contributor_data(user_name, repo_name)
   end
 
+  def self.code_frequency(user_name, repo_name)
+    service.code_frequency(user_name, repo_name).map do |week|
+      {name: week[0], value: week[1], value2: week[2]}
+    end
+  end
+
   def self.parse_time(time)
     DateTime.strptime(time.to_s, '%s').strftime("%e-%b-%y")
   end
