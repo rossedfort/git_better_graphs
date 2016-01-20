@@ -5,7 +5,7 @@ function buildLanguageGraph() {
   });
 
   function drawLanguageGraph(data) {
-    if (data.repos[0] == undefined) {
+    if (data[0] == undefined) {
       buildLanguageGraph();
     } else {
       var w = 700;
@@ -15,7 +15,7 @@ function buildLanguageGraph() {
       var legendSpacing = 4;
       var color = d3.scale.category20c();
       var svg = d3.select('#languageDataGraph')
-      .append("svg:svg").data([data.repos])
+      .append("svg:svg").data([data])
       .attr("width", w)
       .attr("height", h)
       .append("svg:g")
@@ -54,7 +54,7 @@ function buildLanguageGraph() {
       legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function(d, i) { return data.repos[i].label; });
+      .text(function(d, i) { return data[i].label; });
     }
   }
 }

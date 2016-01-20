@@ -7,7 +7,6 @@ function userRepoData() {
   function draw(data) {
     var sizes = new Array();
     var names = new Array();
-    debugger;
     for (var i = 0; i < data.length; i++) {
       names.push(data[i].label);
       sizes.push(data[i].value);

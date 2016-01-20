@@ -5,15 +5,15 @@ function buildFrequencyGraph() {
   });
 
   function drawFrequencyGraph(data) {
-    if (data.repos[0] == undefined) {
+    if (data[0] == undefined) {
       buildFrequencyGraph();
     }else {
       var neg = new Array();
       var pos = new Array();
 
-      for (var i = 0; i < data.repos.length; i++) {
-        pos.push(data.repos[i].value);
-        neg.push(data.repos[i].value2)
+      for (var i = 0; i < data.length; i++) {
+        pos.push(data[i].value);
+        neg.push(data[i].value2)
       }
       var margin = {
         top: 30,
@@ -42,12 +42,12 @@ function buildFrequencyGraph() {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       x.domain([d3.min(neg), d3.max(pos)])
-      y.domain(data.repos.map(function (d) {
+      y.domain(data.map(function (d) {
         return d.name;
       }));
 
       svg.selectAll(".bar")
-      .data(data.repos)
+      .data(data)
       .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function (d) {
@@ -62,7 +62,7 @@ function buildFrequencyGraph() {
       .attr("height", y.rangeBand());
 
       svg.selectAll(".bar2")
-      .data(data.repos)
+      .data(data)
       .enter().append("rect")
       .attr("class", "bar2")
       .attr("x", function (d) {

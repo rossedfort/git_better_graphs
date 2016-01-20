@@ -7,8 +7,8 @@ function getCommitData() {
         getCommitData();
       } else {
         var count = 0;
-        for (var i = 0; i < commit_data.repos.length; i++) {
-          count += commit_data.repos[i][1][1]
+        for (var i = 0; i < commit_data.length; i++) {
+          count += commit_data[i][1][1]
         }
         $("#commitCount").append(
           count
@@ -27,14 +27,14 @@ function getCommitActivity() {
     $(".commitLoader").hide();
   });
   function drawCommitGraph(data) {
-    if (data.repos[0] == undefined) {
+    if (data[0] == undefined) {
       getCommitActivity();
     }else {
       var margin = {top: 30, right: 20, bottom: 30, left: 50},
       width = 700 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
       var parseDate = d3.time.format("%d-%b-%y").parse;
-      data.repos.forEach(function(d) {
+      data.forEach(function(d) {
         d.date = parseDate(d.week);
         d.amount = +d.amount;
       });
@@ -58,12 +58,12 @@ function getCommitActivity() {
       .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
 
-      x.domain(d3.extent(data.repos, function(d) { return d.date; }));
-      y.domain([0, d3.max(data.repos, function(d) { return d.amount; })]);
+      x.domain(d3.extent(data, function(d) { return d.date; }));
+      y.domain([0, d3.max(data, function(d) { return d.amount; })]);
 
       svg.append("path")
       .attr("class", "line")
-      .attr("d", valueline(data.repos));
+      .attr("d", valueline(data));
 
       svg.append("g")
       .attr("class", "x axis")
