@@ -26929,14 +26929,93 @@ Picker.extend( 'pickadate', DatePicker )
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
+function getCommitData() {
+  $.ajax({
+    type:    "GET",
+    url:     "/users/" + userName + "/repos/" + repoName + "/commit_data",
+    success: function(commit_data) {
+      if (commit_data == null) {
+        getCommitData();
+      } else {
+        $("#commitCount").append(
+          commit_data
+        );
+      }
+    },
+    error: function(xhr) {
+      console.log(xhr.error)
+    }
+  })
+}
+
+function getCommitActivity() {
+  $(".commitLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/commit_activity").then(drawCommitGraph).always(function() {
+    $(".commitLoader").hide();
+  });
+  function drawCommitGraph(data) {
+    if (data.repos[0] == undefined) {
+      getCommitActivity();
+    }else {
+      var margin = {top: 30, right: 20, bottom: 30, left: 50},
+      width = 700 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+      var parseDate = d3.time.format("%d-%b-%y").parse;
+      data.repos.forEach(function(d) {
+        d.date = parseDate(d.week);
+        d.amount = +d.amount;
+      });
+      var x = d3.time.scale().range([0, width]);
+      var y = d3.scale.linear().range([height, 0]);
+
+      var xAxis = d3.svg.axis().scale(x)
+      .orient("bottom").ticks(3);
+
+      var yAxis = d3.svg.axis().scale(y)
+      .orient("left").ticks(5);
+      var valueline = d3.svg.line()
+      .x(function(d) { return x(d.date); })
+      .y(function(d) { return y(d.amount); });
+
+      var svg = d3.select("#commitGraph")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+
+      x.domain(d3.extent(data.repos, function(d) { return d.date; }));
+      y.domain([0, d3.max(data.repos, function(d) { return d.amount; })]);
+
+      svg.append("path")
+      .attr("class", "line")
+      .attr("d", valueline(data.repos));
+
+      svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+      svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+    }
+  }
+}
+;
 function populateContributorData() {
   $.ajax({
     type:    "GET",
     url:     "/users/" + userName + "/repos/" + repoName + "/contributor_data",
     success: function(data) {
-      $("#repoContributors").append(
-        data.repos.length
-      )
+      if (data == null) {
+        populateContributorData();
+      }else {
+        $("#repoContributors").append(
+          data.repos.length
+        )
+      }
     },
     error: function() {
       console.log("error")
@@ -26945,65 +27024,174 @@ function populateContributorData() {
 }
 
 function buildContributorGraph(data) {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph);
-
+  $(".contributorLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/contributor_data").then(drawContributorGraph).always(function() {
+    $(".contributorLoader").hide();
+  });
   function drawContributorGraph(data) {
-    var w = 400;
-    var h = 200;
-    var r = h/2;
-    var legendRectSize = 18;
-    var legendSpacing = 4;
-    var color = d3.scale.category20c();
-    var svg = d3.select('#contributorDataGraph')
-                .append("svg:svg").data([data.repos])
-                .attr("width", w)
-                .attr("height", h)
-                .append("svg:g")
-                .attr("transform", "translate(" + r + "," + r + ")");
-    var pie = d3.layout.pie().value(function(d){return d.value;});
-    var arc = d3.svg.arc().outerRadius(r);
-    var arcs = svg.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
+    if (data.repos[0] == undefined) {
+      buildContributorGraph();
+    }else {
+      var w = 700;
+      var h = 400;
+      var r = h/2;
+      var legendRectSize = 18;
+      var legendSpacing = 4;
+      var color = d3.scale.category20c();
+      var svg = d3.select('#contributorDataGraph')
+      .append("svg:svg").data([data.repos])
+      .attr("width", w)
+      .attr("height", h)
+      .append("svg:g")
+      .attr("transform", "translate(" + r + "," + r + ")");
+      var pie = d3.layout.pie().value(function(d){return d.value;});
+      var arc = d3.svg.arc().outerRadius(r);
+      var arcs = svg.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
 
-    arcs.append("svg:path")
-        .attr("fill", function(d, i){
-          return color(i);
-        })
-        .attr("d", function (d) {
-          return arc(d);
-        });
+      arcs.append("svg:path")
+      .attr("fill", function(d, i){
+        return color(i);
+      })
+      .attr("d", function (d) {
+        return arc(d);
+      });
 
-    var legend = svg.selectAll('.legend')
-          .data(color.domain())
-          .enter()
-          .append('g')
-          .attr('class', 'legend')
-          .attr('transform', function(d, i) {
-            var height = legendRectSize + legendSpacing;
-            var offset =  height * color.domain().length / 2;
-            var horz = 10 * legendRectSize;
-            var vert = i * height - offset;
-            return 'translate(' + horz + ',' + vert + ')';
-          });
+      var legend = svg.selectAll('.legend')
+      .data(color.domain())
+      .enter()
+      .append('g')
+      .attr('class', 'legend')
+      .attr('transform', function(d, i) {
+        var height = legendRectSize + legendSpacing;
+        var offset =  height * color.domain().length / 2;
+        var horz = 20 * legendRectSize;
+        var vert = i * height - offset;
+        return 'translate(' + horz + ',' + vert + ')';
+      });
 
-    legend.append('rect')
-          .attr('width', legendRectSize)
-          .attr('height', legendRectSize)
-          .style('fill', color)
-          .style('stroke', color);
+      legend.append('rect')
+      .attr('width', legendRectSize)
+      .attr('height', legendRectSize)
+      .style('fill', color)
+      .style('stroke', color);
 
-    legend.append('text')
-          .attr('x', legendRectSize + legendSpacing)
-          .attr('y', legendRectSize - legendSpacing)
-          .text(function(d, i) { return data.repos[i].label; });
+      legend.append('text')
+      .attr('x', legendRectSize + legendSpacing)
+      .attr('y', legendRectSize - legendSpacing)
+      .text(function(d, i) { return data.repos[i].label; });
+
+    }
+  }
+}
+;
+function buildFrequencyGraph() {
+  $(".frequencyLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/code_frequency").then(drawFrequencyGraph).always(function() {
+    $(".frequencyLoader").hide();
+  });
+
+  function drawFrequencyGraph(data) {
+    if (data.repos[0] == undefined) {
+      buildFrequencyGraph();
+    }else {
+      var neg = new Array();
+      var pos = new Array();
+
+      for (var i = 0; i < data.repos.length; i++) {
+        pos.push(data.repos[i].value);
+        neg.push(data.repos[i].value2)
+      }
+      var margin = {
+        top: 30,
+        right: 10,
+        bottom: 10,
+        left: 10
+      },
+      width = 700 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+
+      var x = d3.scale.linear()
+      .range([0, width])
+      .domain([d3.max(pos), 0]);
+
+      var y = d3.scale.ordinal()
+      .rangeRoundBands([0, height], .2);
+
+      var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("top");
+
+      var svg = d3.select("#frequencyGraph").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      x.domain([d3.min(neg), d3.max(pos)])
+      y.domain(data.repos.map(function (d) {
+        return d.name;
+      }));
+
+      svg.selectAll(".bar")
+      .data(data.repos)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function (d) {
+        return x(Math.min(0, d.value));
+      })
+      .attr("y", function (d) {
+        return y(d.name);
+      })
+      .attr("width", function (d) {
+        return Math.abs(x(d.value) - x(0));
+      })
+      .attr("height", y.rangeBand());
+
+      svg.selectAll(".bar2")
+      .data(data.repos)
+      .enter().append("rect")
+      .attr("class", "bar2")
+      .attr("x", function (d) {
+        return x(Math.min(0, d.value2));
+      })
+      .attr("y", function (d) {
+        return y(d.name);
+      })
+      .attr("width", function (d) {
+        return Math.abs(x(d.value2) - x(0));
+      })
+      .attr("height", y.rangeBand());
+
+
+      svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+      svg.append("g")
+      .attr("class", "y axis")
+      .append("line")
+      .attr("x1", x(0))
+      .attr("x2", x(0))
+      .attr("y2", height);
+
+
+      function type(d) {
+        d.value = +d.value;
+        return d;
+      }
+    }
   }
 }
 ;
 function buildLanguageGraph() {
-  $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph)
+  $(".languageLoader").show();
+  $.getJSON("/users/" + userName + "/repos/" + repoName + "/language_data").then(drawLanguageGraph).always(function() {
+    $(".languageLoader").hide();
+  });
 
   function drawLanguageGraph(data) {
-    var w = 400;
-    var h = 200;
+    var w = 700;
+    var h = 400;
     var r = h/2;
     var legendRectSize = 18;
     var legendSpacing = 4;
@@ -27034,7 +27222,7 @@ function buildLanguageGraph() {
     .attr('transform', function(d, i) {
       var height = legendRectSize + legendSpacing;
       var offset =  height * color.domain().length / 2;
-      var horz = 10 * legendRectSize;
+      var horz = 20 * legendRectSize;
       var vert = i * height - offset;
       return 'translate(' + horz + ',' + vert + ')';
     });
@@ -27067,21 +27255,6 @@ function getRepoData() {
     },
     error: function() {
       console.log("error")
-    }
-  })
-}
-
-function getCommitData() {
-  $.ajax({
-    type:    "GET",
-    url:     "/users/" + userName + "/repos/" + repoName + "/commit_data",
-    success: function(commit_data) {
-      $("#commitCount").append(
-        commit_data
-      );
-    },
-    error: function(xhr) {
-      console.log(xhr.error)
     }
   })
 }
@@ -27126,7 +27299,10 @@ function getRepoLink() {
 }
 ;
 function userRepoData() {
-  $.getJSON("/users/" + userName + "/repo_data").then(draw).fail(error);
+  $(".repoLoader").show();
+  $.getJSON("/users/" + userName + "/repo_data").then(draw).fail(error).always(function () {
+    $(".repoLoader").hide();
+  });
 
   function draw(data) {
     var sizes = new Array();
@@ -27223,6 +27399,7 @@ function userRepoData() {
 $(document).ready(function(){
   $('.slider').slider({full_width: true});
   $('.tooltipped').tooltip({delay: 50});
+  $('select').material_select();
   userRepoData();
   populateRepoDropdown();
   populateUserData();
@@ -27232,4 +27409,22 @@ $(document).ready(function(){
   buildLanguageGraph();
   populateContributorData();
   buildContributorGraph();
+  getCommitActivity();
+  buildFrequencyGraph();
+  $("#languageGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
+    $("#languageDataGraph").toggleClass( "hidden" );
+  });
+  $("#commitGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
+    $("#commitGraph").toggleClass( "hidden" );
+  });
+  $("#contributorGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
+    $("#contributorDataGraph").toggleClass( "hidden" );
+  });
+  $("#freqeuncyGraphButton").click(function() {
+    $(".graphs").children().addClass("hidden")
+    $("#frequencyGraph").toggleClass( "hidden" );
+  });
 });
