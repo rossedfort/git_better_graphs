@@ -9,7 +9,6 @@ class UserCanSeeGraphsTest < ActionDispatch::IntegrationTest
       visit "/"
       click_on "myGraphs"
       assert_equal user_path(User.first.nickname), current_path
-      save_and_open_page
     end
   end
 end
