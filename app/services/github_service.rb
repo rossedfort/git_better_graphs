@@ -44,4 +44,8 @@ class GithubService
   def code_frequency(user_name,repo_name)
     client.get("/repos/#{user_name}/#{repo_name}/stats/code_frequency")
   end
+
+  def pull_requests(user_name, repo_name)
+    client.get("/repos/#{user_name}/#{repo_name}/pulls?state=all")
+  end
 end

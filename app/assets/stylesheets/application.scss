@@ -121,7 +121,7 @@ td, th {
 
 .repo-buttons .container {
   padding: 0px 0px 0px 0px;
-  width: 330px;
+  width: 440px;
 }
 
 .repo-buttons .row {
@@ -206,10 +206,6 @@ input[type=text]:focus {
   overflow: scroll;
 }
 
-#commitGraph {
-  margin-left: -25px;
-}
-
 #commitGraph path {
   stroke: rgb(49, 130, 189);
   stroke-width: 2;
@@ -255,8 +251,9 @@ input[type=text]:focus {
   color: #6cc644;
 }
 
-.repo-dropdown label {
-  color: red;
+.repo-dropdown select {
+  height: 25px;
+  margin-top: 10px;
 }
 
 .btn-small {
@@ -288,4 +285,13 @@ input[type=text]:focus {
 
 .search-results img {
   width: 25px;
+}
+
+.slides img {
+  border: 2px solid #cccccc;
+}
+
+.loader h5 {
+  color: #cccccc;
+  display: inline;
 }

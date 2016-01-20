@@ -35,6 +35,13 @@ class Repo
     end
   end
 
+  def self.pull_requests(user_name, repo_name)
+    stuff = service.pull_requests(user_name, repo_name).map(&:state).inject(Hash.new(0)) {|hash,word| hash[word] += 1; hash}
+    stuff.map do |state, count|
+      {"label" => state, "value" => count}
+    end
+  end
+
   def self.parse_time(time)
     DateTime.strptime(time.to_s, '%s').strftime("%e-%b-%y")
   end
