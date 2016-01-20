@@ -3,9 +3,9 @@ function populateRepoDropdown() {
     type:    "GET",
     url:     "/users/" + userName + "/repo_data",
     success: function(data) {
-      for (var i = 0; i < data.users.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         $("#repoSelect").append(
-          "<option id=repoSelectOption value=" + data.users[i].label + ">" + data.users[i].label + "</option>"
+          "<option id=repoSelectOption value=" + data[i].label + ">" + data[i].label + "</option>"
         )
       }
     },

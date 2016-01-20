@@ -9,4 +9,12 @@ class ExploreControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
+
+  test "#search" do
+    VCR.use_cassette("explore_controller#search") do
+      get :search, id: 'rossedfort'
+
+      assert_response :success
+    end
+  end
 end

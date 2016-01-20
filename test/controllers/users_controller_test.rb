@@ -24,4 +24,12 @@ class UsersControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
+
+  test "#user_data" do
+    VCR.use_cassette("users_controller#show") do
+      get :user_data, format: :json, id: 'rossedfort'
+
+      assert_response :success
+    end
+  end
 end

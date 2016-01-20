@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%= render partial: 'partials/nav' %>
   <% flash.each do |type, msg| %>
   <div class="flash_<%= type %>">
+    <%= content_tag :p, msg, class: 'hidden' %>
     <script type="text/javascript">
       Materialize.toast('<%= sanitize(msg) %>', 5000, 'rounded <%= "flash_#{type}" %>');
     </script>

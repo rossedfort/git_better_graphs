@@ -9,10 +9,6 @@ class GithubService
     client.get("users/#{user}/repos")
   end
 
-  def follower_repos(user)
-    client.get("users/#{user}/repos")
-  end
-
   def followers(user)
     client.get("users/#{user}/followers")
   end

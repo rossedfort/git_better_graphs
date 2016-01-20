@@ -7,10 +7,10 @@ function userRepoData() {
   function draw(data) {
     var sizes = new Array();
     var names = new Array();
-
-    for (var i = 0; i < data.users.length; i++) {
-      names.push(data.users[i].label);
-      sizes.push(data.users[i].value);
+    debugger;
+    for (var i = 0; i < data.length; i++) {
+      names.push(data[i].label);
+      sizes.push(data[i].value);
     }
 
     var color = d3.scale.category20b();
@@ -59,7 +59,7 @@ function userRepoData() {
         .attr("text-anchor", "end")
         .style("fill", "black")
         .style("font-size", "12px")
-        .text(function(d, i) { return data.users[i].label; });
+        .text(function(d, i) { return data[i].label; });
 
     chart.append("g")
         .attr("class", "x axis")

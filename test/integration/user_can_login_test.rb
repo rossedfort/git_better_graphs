@@ -6,6 +6,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     VCR.use_cassette("github_service#login") do
       visit "/"
       click_on "Login"
+      assert page.has_content?("Welcome, rossedfort")
     end
   end
 end
