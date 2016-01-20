@@ -6,42 +6,41 @@
     <div class="row">
       <div class="col s8">
         <h5>name:</h5>
-        <p class="red-text" id="repoName"></p><br>
+        <p id="repoName"></p><br>
         <h5>description:</h5>
-        <p class="red-text" id="repoDescription"></p><br>
-        <h5>size:</h5>
-        <p class="red-text" id="repoSize"></p><br>
+        <p id="repoDescription"></p><br>
         <h5>primary language:</h5>
-        <p class="red-text" id="repoLanguage"></p><br>
+        <p id="repoLanguage"></p><br>
       </div>
-      <div class="col s3">
+      <div class="col s4">
         <table class="bordered highlight">
           <tr>
             <th>watchers:</th>
             <td id="repoWatchers"></td>
-          </tr>
-          <tr>
-            <th>commits:</th>
-            <td id="commitCount"></td>
-          </tr>
-          <tr>
-            <th>forks:</th>
-            <td id="repoForks"></td>
-          </tr>
-          <tr>
             <th>open issues:</th>
             <td id="repoOpenIssues"></td>
           </tr>
           <tr>
+            <th>commits:</th>
+            <td id="commitCount"></td>
             <th>contributors:</th>
             <td id="repoContributors"></td>
           </tr>
+          <tr>
+            <th>forks:</th>
+            <td id="repoForks"></td>
+            <th>size in lines:</th>
+            <td id="repoSize"></td>
           </tr>
         </table>
       </div>
     </div>
+  </div>
+</div>
+<div class="repo-buttons">
+  <div class="container">
     <div class="row">
-      <div class="col s12 center small-top-margin graph-selection">
+      <div class="col s12 center graph-selection">
         <button id="contributorGraphButton" type="button" class="btn blue btn-small">contributor</button>
         <button id="languageGraphButton" type="button" class="btn blue btn-small">language</button>
         <button id="commitGraphButton" type="button" class="btn blue btn-small">commit</button>

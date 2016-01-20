@@ -116,15 +116,33 @@ td, th {
 }
 
 .repo-data .container {
-  padding: 25px 25px 0px 25px;
+  padding: 5px 15px 5px 15px;
+}
+
+.repo-buttons .container {
+  padding: 0px 0px 0px 0px;
+  width: 330px;
+}
+
+.repo-buttons .row {
+  margin-bottom: 0px;
 }
 
 .repo-data p, h5 {
   display: inline;
 }
 
+.repo-data p {
+  color: rgb(49, 130, 189);
+}
+
 .repo-data table th {
   color: rgb(49, 130, 189);
+}
+
+.repo-data table td {
+  padding-right: 25px;
+  text-align: right;
 }
 
 .repo-graphs .container {
@@ -249,7 +267,6 @@ input[type=text]:focus {
   padding: 0 .5rem .5rem;
   font-size: 12px;
   width: 90px;
-  margin-bottom: 3px;
   margin-left: -5px;
   border: 1px solid #cccccc !important;
   box-shadow: none !important;
@@ -261,6 +278,12 @@ input[type=text]:focus {
 
 .following img {
   width: 25px;
+}
+
+.search-results {
+  margin-top: 25px;
+  padding: 10px 10px 10px 10px;
+  background-color: #f2f2f2;
 }
 
 .search-results img {
