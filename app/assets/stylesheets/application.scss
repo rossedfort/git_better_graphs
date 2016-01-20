@@ -115,6 +115,10 @@ td, th {
   min-height: 150px;
 }
 
+.repo-data .container {
+  padding: 25px 25px 0px 25px;
+}
+
 .repo-data p, h5 {
   display: inline;
 }
@@ -156,16 +160,12 @@ input[type=text]:focus {
   margin-right: 25px;
 }
 
-.graphs {
-  margin-left: 75px;
+.graphs h6 {
+  display: inline;
 }
 
 .graphs svg {
   margin-top: 50px;
-}
-
-.graphs h6 {
-  display: inline;
 }
 
 .page-footer .container {
@@ -239,4 +239,19 @@ input[type=text]:focus {
 
 .repo-dropdown label {
   color: red;
+}
+
+.btn-small {
+  color: black !important;
+  background-color: #fff !important;
+  line-height: 25px;
+  height: 25px;
+  padding: 0 .5rem .5rem;
+  font-size: 12px;
+  width: 90px;
+  margin-bottom: 3px;
+  margin-left: -5px;
+  border: 1px solid #cccccc !important;
+  box-shadow: none !important;
+  text-transform: none;
 }
