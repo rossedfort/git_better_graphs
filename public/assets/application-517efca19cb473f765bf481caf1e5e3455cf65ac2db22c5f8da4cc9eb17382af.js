@@ -27068,7 +27068,7 @@ function buildContributorGraph(data) {
       .attr('transform', function(d, i) {
         var height = legendRectSize + legendSpacing;
         var offset =  height * color.domain().length / 2;
-        var horz = 20 * legendRectSize;
+        var horz = 15 * legendRectSize;
         var vert = i * height - offset;
         return 'translate(' + horz + ',' + vert + ')';
       });
@@ -27082,7 +27082,8 @@ function buildContributorGraph(data) {
       legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function(d, i) { return data[i].label; });    }
+      .text(function(d, i) { return data[i].label + " - " + data[i].value + " commits"; })
+    }
   }
 }
 ;
@@ -27195,6 +27196,15 @@ function buildLanguageGraph() {
     if (data[0] == undefined) {
       buildLanguageGraph();
     } else {
+      var amounts = new Array();
+      for (var i = 0; i < data.length; i++) {
+        amounts.push(data[i].value)
+      }
+      var sum = amounts.reduce(add, 0);
+
+      function add(a, b) {
+          return a + b;
+      }
       var w = 700;
       var h = 400;
       var r = h/2;
@@ -27241,7 +27251,7 @@ function buildLanguageGraph() {
       legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function(d, i) { return data[i].label; });
+      .text(function(d, i) { return data[i].label + " - " + Math.round((data[i].value / sum)*100) + "%"; });
     }
   }
 }
