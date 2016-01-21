@@ -3,7 +3,7 @@ function getCommitData() {
     type:    "GET",
     url:     "/users/" + userName + "/repos/" + repoName + "/commit_data",
     success: function(commit_data) {
-      if (commit_data == null) {
+      if (commit_data[0] == undefined) {
         getCommitData();
       } else {
         var count = 0;
