@@ -27309,7 +27309,7 @@ function buildPullRequestGraph() {
     legend.append('text')
     .attr('x', legendRectSize + legendSpacing)
     .attr('y', legendRectSize - legendSpacing)
-    .text(function(d, i) { return data[i].label; });
+    .text(function(d, i) { return data[i].value + " " + data[i].label; });
   }
 }
 ;
@@ -27476,10 +27476,10 @@ $(document).ready(function(){
   populateRepoDropdown();
   populateUserData();
   getRepoLink();
+  populateContributorData();
   getRepoData();
   getCommitData();
   buildLanguageGraph();
-  populateContributorData();
   buildContributorGraph();
   getCommitActivity();
   buildFrequencyGraph();
