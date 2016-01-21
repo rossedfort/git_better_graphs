@@ -34,7 +34,7 @@ class GithubService
   end
 
   def contributor_data(user_name, repo_name)
-    client.get("/repos/#{user_name}/#{repo_name}/stats/contributors")
+    client.contributors_stats("#{user_name}/#{repo_name}")
   end
 
   def search(user)
@@ -46,6 +46,6 @@ class GithubService
   end
 
   def pull_requests(user_name, repo_name)
-    client.get("/repos/#{user_name}/#{repo_name}/pulls?state=all")
+    client.pull_requests("#{user_name}/#{repo_name}", options = {:state => 'all', per_page: 100})
   end
 end
