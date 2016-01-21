@@ -24,10 +24,10 @@ $(document).ready(function(){
   populateRepoDropdown();
   populateUserData();
   getRepoLink();
+  populateContributorData();
   getRepoData();
   getCommitData();
   buildLanguageGraph();
-  populateContributorData();
   buildContributorGraph();
   getCommitActivity();
   buildFrequencyGraph();
