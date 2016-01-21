@@ -2,6 +2,9 @@
   <div class="row center">
     <div class="col s4 offset-s4">
       <h5><%= @results.total_count %> Results!</h5>
+      <% if @results.total_count > 100 %>
+        <h6>(only showing the first 100)</h6>
+      <% end %>
     </div>
     <div class="col s8 offset-s2 search-results">
       <% @results.items.each do |result| %>

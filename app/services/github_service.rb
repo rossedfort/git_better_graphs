@@ -6,7 +6,7 @@ class GithubService
   end
 
   def repo_data(user)
-    client.get("users/#{user}/repos")
+    client.repositories(user, per_page: 100)
   end
 
   def followers(user)
@@ -38,7 +38,7 @@ class GithubService
   end
 
   def search(user)
-    client.get("/search/users?q=#{user}")
+    client.search_users(user, per_page: 100)
   end
 
   def code_frequency(user_name,repo_name)
