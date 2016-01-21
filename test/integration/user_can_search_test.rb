@@ -11,6 +11,8 @@ class UserCanSearchTest < ActionDispatch::IntegrationTest
         click_on "Search"
       end
       assert_equal search_path, current_path
+      assert page.has_content?("Results!")
+      assert page.has_content?("rails")
     end
   end
 

@@ -54,7 +54,7 @@ class ReposControllerTest < ActionController::TestCase
   test "#contributor_data" do
     VCR.use_cassette("repos_controller#contributor_data") do
       get :contributor_data, user_id: 'rossedfort', id: 'git_better_graphs'
-      
+
       assert_response :success
     end
   end
