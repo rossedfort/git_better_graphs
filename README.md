@@ -1,24 +1,27 @@
 # README
 
-### [Project Title]
+### GitBetter Graphs
 
 ### Pitch
 
-1 sentence that explains the value proposition of the application. How would you explain it to a potential business partner, team member, or investor?
+GitBetter Graphs is an app for programmers who want better representation their Github data
 
 ### Problem
 
-1-3 sentences describing the problem that you are trying to solve.
+Github is a powerful tool for all programmers, however the graphs and statistics provided are less than ideal.
+GitBetter Graphs aims to improve upon, and offer new interpretations of Github's graphs.
 
 ### Solution
 
-1-3 sentences describing how your application will solve that problem.
+By consuming Github's public API and graphing the data returned with D3js, this application will provide
+more powerful and in depth graphs.
 
 ### Target Audience
 
-1-3 sentences describing what type of user your app would be applicable to.
+This application is for anyone with a Github account, particularly users who are more interested in the data they
+create, and employers or recruiters who want a quick glance at a potential employee's statistics.
 
 ### Integrations
 
-* Which APIs will you use?
-* Which OAuth integration are you planning to use?
+* This app will consume the Github API through the Octokit gem
+* The graphs will be built using D3js
