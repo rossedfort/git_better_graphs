@@ -5,7 +5,6 @@ class Repo
 
   def self.specific_repo_data(user_name, repo_name)
     service.specific_repo_data(user_name, repo_name)
-    binding.pry
   end
 
   def self.commit_data(user_name, repo_name)
